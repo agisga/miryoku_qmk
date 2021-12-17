@@ -1,3 +1,25 @@
+* Edits on top of official Miryoku layout
+
+For my current preference, for example, flash with:
+
+#+begin_src
+sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-left MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN
+sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN
+#+end_src
+
+** My layout as of 2022-02-12
+
+- Based off Miryoku with flipped layers and interted-T nav.
+- Home-row mods on base layer are disabled.
+- Mods can be invoked from any sublayer (thumb down for sublayer, finger down on a mod key, thumb up while finger is held).
+- Sticky shift added instead of Enter/Sym-layer thumb key. Sym layer moved to the F key as layer-tap. Enter key moved to multiple locations on different sublayers.
+- About 25 combos added for useful shortcuts and macros.
+- Visualization generated as per [[https://github.com/manna-harbour/miryoku/issues/72][https://github.com/manna-harbour/miryoku/issues/72]].
+
+[[https://raw.githubusercontent.com/agisga/miryoku_qmk/miryoku/my_miryoku_reference.png]]
+
+------------------------------------------
+
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 

@@ -32,12 +32,14 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
 
-// Thumb Combos
+// Thumb Combos, and other combos
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 8
-  #define COMBO_TERM 200
-  #define EXTRA_SHORT_COMBOS
+  #define COMBO_COUNT 33
+#else
+  #define COMBO_COUNT 25
 #endif
+#define COMBO_TERM 50
+#define EXTRA_SHORT_COMBOS
 
 #include "custom_config.h"
 
