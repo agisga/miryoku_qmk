@@ -1,3 +1,10 @@
+# Alexej's edits
+
+```
+sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-left MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT
+sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT
+```
+
 # Ferris sweep
 
 ![Ferris sweep, top view](https://i.imgur.com/5qCZUv6h.jpg)
