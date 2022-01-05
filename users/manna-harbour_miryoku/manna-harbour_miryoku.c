@@ -33,18 +33,50 @@ const uint16_t PROGMEM thumbcombos_sym[] = {KC_UNDS, KC_LPRN, COMBO_END};
 const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
   #endif
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_ENT, KC_TAB, COMBO_END};
-combo_t key_combos[COMBO_COUNT] = {
-  COMBO(thumbcombos_base_right, LT(FUN, KC_DEL)),
-  COMBO(thumbcombos_base_left, LT(MEDIA, KC_ESC)),
-  COMBO(thumbcombos_nav, KC_DEL),
-  COMBO(thumbcombos_mouse, KC_BTN2),
-  COMBO(thumbcombos_media, KC_MUTE),
-  COMBO(thumbcombos_num, KC_DOT),
-  #if defined (MIRYOKU_LAYERS_FLIP)
-  COMBO(thumbcombos_sym, KC_RPRN),
-  #else
-  COMBO(thumbcombos_sym, KC_LPRN),
-  #endif
-  COMBO(thumbcombos_fun, KC_APP)
-};
 #endif
+
+//--- alexej's key-combos
+enum combos {
+  QW_ESC,
+  QZ_SCSHT,
+  AZ_MUTE,
+  SX_VOLDN,
+  DC_VOLUP,
+  FV_WSL,
+  GB_WSR,
+};
+
+const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(BUTTON, KC_Z), COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(BUTTON, KC_Z), COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_S), ALGR_T(KC_X), COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_D), KC_C, COMBO_END};
+const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_F), KC_V, COMBO_END};
+const uint16_t PROGMEM gb_combo[] = {KC_G, KC_B, COMBO_END};
+//---
+
+combo_t key_combos[COMBO_COUNT] = {
+  //--- alexej's key-combos
+  [QW_ESC] = COMBO(qw_combo, KC_ESC),
+  [QZ_SCSHT] = COMBO(qz_combo, LGUI(LSFT(KC_S))),
+  [AZ_MUTE] = COMBO(az_combo, KC_MUTE),
+  [SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
+  [DC_VOLUP] = COMBO(dc_combo, KC_VOLU),
+  [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
+  [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
+  //---
+  #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
+    COMBO(thumbcombos_base_right, LT(FUN, KC_DEL)),
+    COMBO(thumbcombos_base_left, LT(MEDIA, KC_ESC)),
+    COMBO(thumbcombos_nav, KC_DEL),
+    COMBO(thumbcombos_mouse, KC_BTN2),
+    COMBO(thumbcombos_media, KC_MUTE),
+    COMBO(thumbcombos_num, KC_DOT),
+    #if defined (MIRYOKU_LAYERS_FLIP)
+    COMBO(thumbcombos_sym, KC_RPRN),
+    #else
+    COMBO(thumbcombos_sym, KC_LPRN),
+    #endif
+    COMBO(thumbcombos_fun, KC_APP)
+  #endif
+};
