@@ -48,10 +48,10 @@ enum combos {
 
 const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(BUTTON, KC_Z), COMBO_END};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(BUTTON, KC_Z), COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_S), ALGR_T(KC_X), COMBO_END};
-const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_D), KC_C, COMBO_END};
-const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_F), KC_V, COMBO_END};
+const uint16_t PROGMEM az_combo[] = {KC_A, LT(BUTTON, KC_Z), COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {KC_S, KC_X, COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {KC_D, KC_C, COMBO_END};
+const uint16_t PROGMEM fv_combo[] = {KC_F, KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_G, KC_B, COMBO_END};
 //---
 
