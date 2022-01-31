@@ -34,9 +34,9 @@
 
 // Thumb Combos, and other combos
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 15
+  #define COMBO_COUNT 22
 #else
-  #define COMBO_COUNT 7
+  #define COMBO_COUNT 14
 #endif
 #define COMBO_TERM 50
 #define EXTRA_SHORT_COMBOS
