@@ -1,3 +1,12 @@
+* Alexej's edits
+
+For my current preference, for example, flash with:
+
+```
+sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-left MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT
+sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT
+```
+
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
