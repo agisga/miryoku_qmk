@@ -33,9 +33,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {LT(SYM, KC_SPC), LT(NUM, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {LT(SYM, KC_BSPC), LT(NUM, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(NAV, KC_ENT), OSM(MOD_LSFT), COMBO_END};
-const uint16_t PROGMEM thumbcombos_nav[] = {KC_SPC, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM thumbcombos_nav[] = {KC_BSPC, KC_SPC, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN1, KC_BTN3, COMBO_END};
 const uint16_t PROGMEM thumbcombos_media[] = {KC_MSTP, KC_MPLY, COMBO_END};
 const uint16_t PROGMEM thumbcombos_num[] = {KC_0, KC_MINS, COMBO_END};
