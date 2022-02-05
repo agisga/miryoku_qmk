@@ -7,6 +7,10 @@ sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-left MIRYOKU_ALPHAS=Q
 sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT
 ```
 
+My layout as of 2022-02-05 (generated as per [[https://github.com/manna-harbour/miryoku/issues/72][https://github.com/manna-harbour/miryoku/issues/72]]). Home-row mods on base layer are disabled. Mods can be invoked from any sublayer (thumb down for sublayer, finger down on a mod key, thumb up while finger is held).
+
+[[https://raw.githubusercontent.com/agisga/miryoku_qmk/miryoku/my_miryoku_reference.png]]
+
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
