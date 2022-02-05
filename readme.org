@@ -8,9 +8,10 @@ sudo make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=
 #+end_src
 
 ** My layout as of 2022-02-05
-- Visualization generated as per [[https://github.com/manna-harbour/miryoku/issues/72][https://github.com/manna-harbour/miryoku/issues/72]).
 - Home-row mods on base layer are disabled.
 - Mods can be invoked from any sublayer (thumb down for sublayer, finger down on a mod key, thumb up while finger is held).
+- Sticky shift added instead of Tab/Mouse-layer thumb key. Mouse layer now takes the thumb position where previously media layer was. Media layer can no longer be invoked. Tab is moved to Nav layer.
+- Visualization generated as per [[https://github.com/manna-harbour/miryoku/issues/72][https://github.com/manna-harbour/miryoku/issues/72]].
 
 [[https://raw.githubusercontent.com/agisga/miryoku_qmk/miryoku/my_miryoku_reference.png]]
 
