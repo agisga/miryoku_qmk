@@ -52,7 +52,7 @@ U_NP,              U_NP,              LT(FUN, KC_DEL),   LT(NUM, KC_BSPC),  LT(S
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
 KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,              \
 KC_A,              KC_S,              KC_D,              KC_F,              KC_G,              KC_H,              KC_J,              KC_K,              KC_L,              KC_QUOT,   \
-LT(BUTTON, KC_Z),  KC_X,              KC_C,              KC_V,              KC_B,              KC_N,              KC_M,              KC_COMM,           KC_DOT,            KC_SLSH, \
+KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_N,              KC_M,              KC_COMM,           KC_DOT,            KC_SLSH, \
 U_NP,              U_NP,              LT(FUN, KC_DEL),   LT(NUM, KC_BSPC),  LT(SYM, KC_ENT),   OSM(MOD_LSFT), LT(NAV, KC_SPC),   LT(MEDIA, KC_ESC), U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
@@ -117,7 +117,7 @@ U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   OSM(
 
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
-KC_PGUP,           KC_HOME,           KC_UP,             KC_END,            KC_INS,            U_NA,              KC_APP,            KC_TAB,            U_NA,              RESET,             \
+KC_PGUP,           KC_HOME,           KC_UP,             KC_END,            KC_INS,            U_NA,              KC_APP,            KC_TAB,            LALT(LCTL(KC_TAB)), RESET,             \
 KC_PGDN,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_CAPS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              U_NA,              U_NA,              KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_DEL,            KC_BSPC,           KC_TAB,            U_NA,              U_NA,              U_NA,              U_NP,              U_NP

@@ -60,6 +60,7 @@ enum combos {
   QWER_NOTE,
   SD_AT,
   SDF_AST,
+  ASD_WT,
   WX_CX,
   EC_CC,
   RV_CV,
@@ -76,6 +77,7 @@ const uint16_t PROGMEM asdf_combo[] = {KC_A, KC_S, KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM sdf_combo[] = {KC_S, KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM asd_combo[] = {KC_A, KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
 const uint16_t PROGMEM ec_combo[] = {KC_E, KC_C, COMBO_END};
 const uint16_t PROGMEM rv_combo[] = {KC_R, KC_V, COMBO_END};
@@ -94,6 +96,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [QWER_NOTE] = COMBO(qwer_combo, ONENOTE_QWER),
   [SD_AT] = COMBO(sd_combo, AT_SPECIAL),
   [SDF_AST] = COMBO(sdf_combo, AST_SPECIAL),
+  [ASD_WT] = COMBO(asd_combo, LGUI(KC_TAB)),
   [WX_CX] = COMBO(wx_combo, LCTL(KC_X)),
   [EC_CC] = COMBO(ec_combo, LCTL(KC_C)),
   [RV_CV] = COMBO(rv_combo, LCTL(KC_V)),
