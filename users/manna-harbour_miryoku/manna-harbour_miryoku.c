@@ -61,9 +61,11 @@ enum combos {
   SD_AT,
   SDF_AST,
   ASD_WT,
+  XCV_ACT,
   WX_CX,
   EC_CC,
   RV_CV,
+  KL_CTRL,
 };
 
 const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
@@ -78,9 +80,11 @@ const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM sdf_combo[] = {KC_S, KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM asd_combo[] = {KC_A, KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM xcv_combo[] = {KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
 const uint16_t PROGMEM ec_combo[] = {KC_E, KC_C, COMBO_END};
 const uint16_t PROGMEM rv_combo[] = {KC_R, KC_V, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
 //---
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -97,9 +101,11 @@ combo_t key_combos[COMBO_COUNT] = {
   [SD_AT] = COMBO(sd_combo, AT_SPECIAL),
   [SDF_AST] = COMBO(sdf_combo, AST_SPECIAL),
   [ASD_WT] = COMBO(asd_combo, LGUI(KC_TAB)),
+  [XCV_ACT] = COMBO(xcv_combo, LALT(LCTL(KC_TAB))),
   [WX_CX] = COMBO(wx_combo, LCTL(KC_X)),
   [EC_CC] = COMBO(ec_combo, LCTL(KC_C)),
   [RV_CV] = COMBO(rv_combo, LCTL(KC_V)),
+  [KL_CTRL] = COMBO(kl_combo, OSM(MOD_LCTL)),
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
     COMBO(thumbcombos_base_right, LT(FUN, KC_DEL)),
