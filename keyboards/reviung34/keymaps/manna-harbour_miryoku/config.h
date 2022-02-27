@@ -17,3 +17,15 @@ K10,   K11,   K12,   K13,   K14,          K15,   K16,   K17,   K18,   K19, \
 K20,   K21,   K22,   K23,   K24,          K25,   K26,   K27,   K28,   K29, \
                      K33,   K34,          K35,   K36 \
 )
+
+#define RGB_DI_PIN D3
+#ifdef RGB_DI_PIN
+  #define RGBLED_NUM 9
+  #define RGBLIGHT_HUE_STEP 16
+  #define RGBLIGHT_SAT_STEP 16
+  #define RGBLIGHT_VAL_STEP 16
+  #define RGBLIGHT_LIMIT_VAL 255
+  #define RGBLIGHT_SLEEP
+// /*== all animations enable ==*/
+  #define RGBLIGHT_ANIMATIONS
+#endif
