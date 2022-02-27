@@ -155,7 +155,7 @@ combo_t key_combos[COMBO_COUNT] = {
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
     COMBO(thumbcombos_base_right, LT(FUN, KC_DEL)),
-    COMBO(thumbcombos_base_left, LT(MOUSE, KC_ESC)),
+    COMBO(thumbcombos_base_left, LT(MEDIA, KC_ESC)),
     COMBO(thumbcombos_nav, KC_DEL),
     COMBO(thumbcombos_mouse, KC_BTN2),
     COMBO(thumbcombos_media, KC_MUTE),
