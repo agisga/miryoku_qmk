@@ -5,6 +5,7 @@ For my current preference, for example, flash with:
 #+begin_src
 make ferris/sweep:manna-harbour_miryoku:avrdude-split-left MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN
 make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN
+make reviung34:manna-harbour_miryoku:dfu MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN
 #+end_src
 
 ** My layout as of 2022-02-12
