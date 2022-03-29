@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), LT(NUM, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), LT(NUM, KC_QUOT), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(NAV, KC_SPC), LT(MOUSE, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN1, KC_BTN3, COMBO_END};
@@ -86,8 +86,10 @@ enum combos {
   XC_RET,
   HJ_QUOTE,
   KM_BSPC,
+  DV_BSPC,
   KLM_CBSPC,
   KDOT_DEL,
+  DX_DEL,
 };
 
 const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
@@ -117,6 +119,8 @@ const uint16_t PROGMEM dotcomma_combo[] = {KC_DOT, KC_COMMA, COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, KC_J, COMBO_END};
 const uint16_t PROGMEM km_combo[] = {KC_K, KC_M, COMBO_END};
+const uint16_t PROGMEM dv_combo[] = {KC_D, KC_V, COMBO_END};
+const uint16_t PROGMEM dx_combo[] = {KC_D, KC_X, COMBO_END};
 const uint16_t PROGMEM klm_combo[] = {KC_K, KC_L, KC_M, COMBO_END};
 const uint16_t PROGMEM kdot_combo[] = {KC_K, KC_DOT, COMBO_END};
 //---
@@ -150,11 +154,13 @@ combo_t key_combos[COMBO_COUNT] = {
   [XC_RET] = COMBO(xc_combo, KC_ENT),
   [HJ_QUOTE] = COMBO(hj_combo, AUTOCLOS_QUOTE),
   [KM_BSPC] = COMBO(km_combo, KC_BSPC),
+  [DV_BSPC] = COMBO(dv_combo, KC_BSPC),
   [KLM_CBSPC] = COMBO(klm_combo, LCTL(KC_BSPC)),
   [KDOT_DEL] = COMBO(kdot_combo, KC_DEL),
+  [DX_DEL] = COMBO(dx_combo, KC_DEL),
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-    COMBO(thumbcombos_base_right, LT(FUN, KC_DEL)),
+    COMBO(thumbcombos_base_right, LT(FUN, KC_PAST)),
     COMBO(thumbcombos_base_left, LT(MEDIA, KC_ESC)),
     COMBO(thumbcombos_nav, KC_DEL),
     COMBO(thumbcombos_mouse, KC_BTN2),
