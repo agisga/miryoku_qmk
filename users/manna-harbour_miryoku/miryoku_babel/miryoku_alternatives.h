@@ -57,9 +57,9 @@ U_NP,              U_NP,              LT(FUN, KC_DEL),   LT(NUM, KC_BSPC),  LT(S
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
 KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Y,              KC_U,              KC_I,              KC_O,              KC_P,              \
-KC_A,              KC_S,              KC_D,              KC_F,              KC_G,              KC_H,              KC_J,              KC_K,              KC_L,              KC_SCLN,   \
+KC_A,              KC_S,              KC_D,              KC_F,              KC_G,              KC_H,              KC_J,              KC_K,              KC_L,              KC_QUOT,   \
 KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_N,              KC_M,              KC_COMM,           KC_DOT,            KC_SLSH, \
-U_NP,              U_NP,              LT(FUN, KC_PAST),  LT(NUM, KC_QUOT),  OSM(MOD_LSFT),     LT(MOUSE, KC_SPC), LT(NAV, KC_SPC),   LT(MEDIA, KC_ESC), U_NP,              U_NP
+U_NP,              U_NP,              LT(FUN, KC_PAST),  LT(NUM, KC_MINS),  OSM(MOD_LSFT),     LT(MOUSE, KC_SPC), LT(NAV, KC_SPC),   LT(MEDIA, KC_ESC), U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
 KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,              KC_Z,              KC_U,              KC_I,              KC_O,              KC_P,              \
@@ -160,7 +160,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
-KC_WH_U,           KC_WH_L,           KC_MS_U,           KC_WH_R,           U_NU,              U_NA,              U_NA,              U_NA,              U_NA,              RESET,             \
+KC_WH_U,           KC_WH_L,           KC_MS_U,           KC_WH_R,           TG(BUTTON),        U_NA,              U_NA,              U_NA,              U_NA,              RESET,             \
 KC_WH_D,           KC_MS_L,           KC_MS_D,           KC_MS_R,           U_NU,              U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              U_NA,              U_NA,              KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_BTN2,           KC_BTN3,           KC_BTN1,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
@@ -223,9 +223,9 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
 RESET,             U_NA,              KC_ENT,            U_NA,              U_NA,              KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_EQL,            KC_4,              KC_5,              KC_6,              KC_QUOT,           \
-U_NA,              KC_ALGR,           KC_UNDS,           KC_UNDS,           U_NA,              KC_BSLS,           KC_1,              KC_2,              KC_3,              KC_GRV,            \
-U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MINS,           KC_0,              KC_DOT,            U_NP,              U_NP
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_EQL,            KC_4,              KC_5,              KC_6,              KC_SCLN,           \
+U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              KC_BSLS,           KC_1,              KC_2,              KC_3,              KC_GRV,            \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_UNDS,           KC_0,              KC_DOT,            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NUM \
 KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           U_NA,              U_NA,              U_NA,              U_NA,              RESET,             \
@@ -238,7 +238,7 @@ U_NP,              U_NP,              KC_DOT,            KC_0,              KC_M
 RESET,             U_NA,              KC_ENT,            U_NA,              U_NA,              KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_PLUS,           KC_DLR,            KC_PERC,           KC_CIRC,           KC_COLN,           \
 U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              KC_PIPE,           KC_EXLM,           KC_AT,             KC_HASH,           KC_TILD,           \
-U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_UNDS,           KC_RPRN,           KC_LPRN,           U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MINS,           KC_RPRN,           KC_LPRN,           U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_SYM \
 KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              U_NA,              U_NA,              U_NA,              RESET,             \
@@ -261,7 +261,7 @@ U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_T
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
-U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           KC_NO,             KC_NO,             KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-U_NP,              U_NP,              KC_BTN2,           KC_BTN3,           KC_BTN1,           KC_BTN1,           KC_BTN3,           KC_BTN2,           U_NP,              U_NP
+KC_QUOT,           KC_COMM,           KC_DOT,            KC_P,              KC_Y,              KC_F,              KC_G,              KC_C,              KC_R,              KC_L,     \
+KC_A,              KC_O,              KC_E,              KC_U,              KC_I,              KC_D,              KC_H,              KC_T,              KC_N,              KC_S,     \
+KC_SLSH,           KC_Q,              KC_J,              KC_K,              KC_X,              KC_B,              KC_M,              KC_W,              KC_V,              KC_Z,     \
+U_NP,              U_NP,              LT(FUN, KC_PAST),  LT(NUM, KC_MINS),  OSM(MOD_LSFT),     LT(MOUSE, KC_SPC), LT(NAV, KC_SPC),   LT(MEDIA, KC_ESC), U_NP,              U_NP
