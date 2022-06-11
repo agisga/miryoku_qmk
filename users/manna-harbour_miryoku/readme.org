@@ -3,7 +3,7 @@
 
 * Miryoku QMK [[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/miryoku-roa-32.png]]
 
-[[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/cover/miryoku-kle-cover.png]]
+[[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/cover/miryoku-kle-cover-miryoku_qmk.png]]
 
 [[https://github.com/manna-harbour/miryoku/][Miryoku]] is an ergonomic, minimal, orthogonal, and universal keyboard layout.  [[https://github.com/manna-harbour/miryoku_qmk/tree/miryoku/users/manna-harbour_miryoku][Miryoku QMK]] is the Miryoku implementation for [[https://qmk.fm][QMK]].
 
@@ -51,7 +51,7 @@ Build with the ~qmk~ command.  E.g.
 #+BEGIN_SRC sh :tangle no
 qmk compile -c -kb crkbd -km manna-harbour_miryoku # build for crkbd
 qmk flash -c -kb crkbd -km manna-harbour_miryoku # build for crkbd and flash
-qmk compile -c -kb crkbd -km manna-harbour_miryoku -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_NAV=INVERTEDT -e MIRYOKU_CLIPBOARD=WIN -e MIRYOKU_LAYERS=FLIP # build for crkbd with alternative layouts
+qmk compile -c -kb crkbd -km manna-harbour_miryoku -e MIRYOKU_ALPHAS=QWERTY -e MIRYOKU_EXTRA=COLEMAKDH -e MIRYOKU_TAP=QWERTY-e MIRYOKU_NAV=INVERTEDT -e MIRYOKU_CLIPBOARD=WIN -e MIRYOKU_LAYERS=FLIP # build for crkbd with alternative layouts
 #+END_SRC
 
 
@@ -62,7 +62,7 @@ First ~cd~ to the repository root.  Then build with ~make~. E.g.
 #+BEGIN_SRC sh :tangle no
 make clean crkbd:manna-harbour_miryoku # build for crkbd
 make clean crkbd:manna-harbour_miryoku:flash # build for crkbd and flash
-make clean crkbd:manna-harbour_miryoku MIRYOKU_ALPHAS=QWERTY MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_LAYERS=FLIP # build for crkbd with alternative layouts
+make clean crkbd:manna-harbour_miryoku MIRYOKU_ALPHAS=QWERTY MIRYOKU_EXTRA=COLEMAKDH MIRYOKU_TAP=QWERTY MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_LAYERS=FLIP # build for crkbd with alternative layouts
 #+END_SRC
 
 
@@ -91,7 +91,9 @@ The ~keyboard~ option specifies the keyboard and is required.  All other options
 
 The ~alphas~, ~nav~, ~clipboard~, and ~layers~ options correspond to the [[https://github.com/manna-harbour/miryoku/tree/master/docs/reference#alternative-layouts][alternative layout]] options.  The ~mapping~ option corresponds to the alternative [[#subset-mapping][mapping]] options.  Alternative layout and mapping options are given in the documentation in the form ~MIRYOKU_OPTION=VALUE~.  To use here, convert to the form specified above.  Use ~default~ to represent the default value.  Values for these five options are case-insensitive.  See the [[../../.github/workflows/test-all-configs.yml][Test All Configs workflow file]] for all supported values.
 
-The ~rules~ and ~config~ options can be used to specify values to be appended to ~custom_rules.mk~ and ~custom_config.h~, respectively.  Separate multiple lines with ~\n~.
+The ~rules~ and ~custom_config~ options can be used to specify values to be appended to ~custom_rules.mk~ and ~custom_config.h~, respectively.  Separate multiple lines with ~\n~.
+
+The ~merge~ option can be used to merge branches at build time. Branches are specified in the form ~<user>/<repo>/<branch>~. E.g. QMK ~master~ and ~develop~ would be specified as ~qmk/qmk_firmware/master~ and ~qmk/qmk_firmware/develop~ respectively. Multiple space separated branches can be specified. For no merges, leave as ~default~.
 
 
 **** Build Inputs
@@ -105,6 +107,8 @@ The ~Keyboard~ option specifies the keyboard and is required.  All other options
 The ~Miryoku Alphas~, ~Miryoku Nav~, ~Miryoku Clipboard~, and ~Miryoku Layers~ options correspond to the [[https://github.com/manna-harbour/miryoku/tree/master/docs/reference#alternative-layouts][alternative layout]] options.  The ~Miryoku Mapping~ option corresponds to the alternative [[#subset-mapping][mapping]] options.  Alternative layout and mapping options are given in the documentation in the form ~MIRYOKU_OPTION=VALUE~.  To use here, enter the ~value~ in the corresponding ~Miryoku Option~ field.  Use ~default~ to represent the default value.  Values for these five options are case-insensitive.
 
 The ~custom_rules.mk~ and ~custom_config.h~ options can be used to specify values to be appended to the corresponding files.  Join multiple lines with ~\n~.
+
+The ~Merge QMK Branches~ option can be used to merge branches at build time. Branches are specified in the form ~<user>/<repo>/<branch>~. E.g. QMK ~master~ and ~develop~ would be specified as ~qmk/qmk_firmware/master~ and ~qmk/qmk_firmware/develop~ respectively. Multiple space separated branches can be specified. For no merges, leave as ~default~.
 
 
 ** Subset Mapping
@@ -122,13 +126,13 @@ thumb keys.
 
 - [[./rules.mk]] :: Build options.  Automatically included.
 
-- [[./custom_rules.mk]] :: Custom ~make~ options including customised defaults for alternative layout options, for local builds.  Included from ~rules.mk~.
+- [[./custom_rules.mk]] :: Custom ~make~ options including customised defaults for alternative layout and mapping options.  Included from ~rules.mk~.
 
 - [[./post_rules.mk]] :: Handles Miryoku ~make~ options.  Included from ~rules.mk~.
 
 - [[./config.h]] :: Config options.  Automatically included.
 
-- [[./custom_config.h]] :: Custom config options for local builds.  Included from ~config.h~.
+- [[./custom_config.h]] :: Custom config options.  Included from ~config.h~.
 
 - [[./manna-harbour_miryoku.h]] :: Keymap-related definitions.  Included from ~manna-harbour_miryoku.c~.  Layer data is generated by [[https://github.com/manna-harbour/miryoku_babel][Miryoku Babel]] and is included from files in the [[miryoku_babel]] directory.
 
@@ -500,6 +504,17 @@ make handwired/dactyl_manuform/4x5:manna-harbour_miryoku:flash
 #+END_SRC
 
 
+**** handwired/dactyl_manuform/4x6
+
+Only the main 5x3 alphas and the main 3 thumb keys are used.
+
+To build for this keyboard,
+
+#+BEGIN_SRC sh :tangle no
+make handwired/dactyl_manuform/4x6:manna-harbour_miryoku:flash
+#+END_SRC
+
+
 **** handwired/dactyl_manuform/5x6
 
 Only the main 5x3 alphas and the main 3 thumb keys are used.
@@ -539,6 +554,17 @@ To build for this keyboard,
 
 #+BEGIN_SRC sh :tangle no
 make keyboardio/atreus:manna-harbour_miryoku:flash
+#+END_SRC
+
+
+**** keyboardio/model01
+
+Only the main 5x3 alphas and the inner 3 thumb keys are used.
+
+To build for this keyboard,
+
+#+BEGIN_SRC sh :tangle no
+make keyboardio/model01:manna-harbour_miryoku:flash
 #+END_SRC
 
 
@@ -585,6 +611,15 @@ To build for this keyboard,
 
 #+BEGIN_SRC sh :tangle no
 make redox_w:manna-harbour_miryoku:flash
+#+END_SRC
+
+
+**** satt/vision
+
+To build for this keyboard,
+
+#+BEGIN_SRC sh :tangle no
+make satt/vision:manna-harbour_miryoku:flash
 #+END_SRC
 
 
