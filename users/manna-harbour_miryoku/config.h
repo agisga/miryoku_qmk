@@ -35,11 +35,11 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 // Thumb Combos, and other combos
-#define COMBO_ONLY_FROM_LAYER 0
+//#define COMBO_ONLY_FROM_LAYER 0
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 39
+  #define COMBO_COUNT 32
 #else
-  #define COMBO_COUNT 31
+  #define COMBO_COUNT 25
 #endif
 #define COMBO_TERM 50
 #define EXTRA_SHORT_COMBOS

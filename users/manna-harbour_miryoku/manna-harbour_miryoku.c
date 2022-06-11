@@ -36,8 +36,8 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 //---
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), LT(U_NUM, KC_MINS), COMBO_END};
-const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {LT(U_SYM, KC_ENT), LT(U_NUM, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_TAB), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
 const uint16_t PROGMEM thumbcombos_media[] = {KC_MSTP, KC_MPLY, COMBO_END};
@@ -52,7 +52,6 @@ const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_TAB, COMBO_END};
 
 //--- alexej's key-combos
 enum combos {
-  QW_ESC,
   QZ_SCSHT,
   AZ_MUTE,
   SX_VOLDN,
@@ -67,7 +66,6 @@ enum combos {
   WX_CX,
   EC_CC,
   RV_CV,
-  KL_CTRL,
   FG_PAREN,
   RT_SQBR,
   VB_CRBR,
@@ -75,20 +73,14 @@ enum combos {
   ERT_LSQBR,
   CVB_LCRBR,
   DOTCOMMAQ,
-  DOTCOMMA_TAB,
-  XC_RET,
   HJ_QUOTE,
-  KM_BSPC,
-  DV_BSPC,
-  KLM_CBSPC,
-  KDOT_DEL,
-  DX_DEL,
+  KM_CBSPC,
+  KDOT_CDEL,
 };
 
-const uint16_t PROGMEM qw_combo[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM qz_combo[] = {KC_Q, KC_Z, COMBO_END};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), KC_Z, COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_S), KC_X, COMBO_END};
+const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(U_BUTTON,KC_Z), COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_S), ALGR_T(KC_X), COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_D), KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_F), KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_G, KC_B, COMBO_END};
@@ -96,31 +88,24 @@ const uint16_t PROGMEM asdf_combo[] = {LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D),
 const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM sdf_combo[] = {LALT_T(KC_S), LCTL_T(KC_D), LSFT_T(KC_F), COMBO_END};
 const uint16_t PROGMEM asd_combo[] = {LGUI_T(KC_A), LALT_T(KC_S), LCTL_T(KC_D), COMBO_END};
-const uint16_t PROGMEM xcv_combo[] = {KC_X, KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
+const uint16_t PROGMEM xcv_combo[] = {ALGR_T(KC_X), KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM wx_combo[] = {KC_W, ALGR_T(KC_X), COMBO_END};
 const uint16_t PROGMEM ec_combo[] = {KC_E, KC_C, COMBO_END};
 const uint16_t PROGMEM rv_combo[] = {KC_R, KC_V, COMBO_END};
-const uint16_t PROGMEM kl_combo[] = {LCTL_T(KC_K), LALT_T(KC_L), COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_F), KC_G, COMBO_END};
 const uint16_t PROGMEM rt_combo[] = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM dfg_combo[] = {LCTL_T(KC_D), LSFT_T(KC_F), KC_G, COMBO_END};
 const uint16_t PROGMEM ert_combo[] = {KC_E, KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM cvb_combo[] = {KC_C, KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM dotcommaq_combo[] = {KC_DOT, KC_COMMA, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM dotcomma_combo[] = {KC_DOT, KC_COMMA, COMBO_END};
-const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, ALGR_T(KC_DOT), LT(U_BUTTON,KC_SLSH), COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM km_combo[] = {LCTL_T(KC_K), KC_M, COMBO_END};
-const uint16_t PROGMEM dv_combo[] = {LCTL_T(KC_D), KC_V, COMBO_END};
-const uint16_t PROGMEM dx_combo[] = {LCTL_T(KC_D), KC_X, COMBO_END};
-const uint16_t PROGMEM klm_combo[] = {LCTL_T(KC_K), LALT_T(KC_L), KC_M, COMBO_END};
-const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_K), KC_DOT, COMBO_END};
+const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_K), ALGR_T(KC_DOT), COMBO_END};
 //---
 
 combo_t key_combos[COMBO_COUNT] = {
   //--- alexej's key-combos
-  [QW_ESC] = COMBO(qw_combo, KC_ESC),
   [QZ_SCSHT] = COMBO(qz_combo, LGUI(LSFT(KC_S))),
   [AZ_MUTE] = COMBO(az_combo, KC_MUTE),
   [SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
@@ -135,7 +120,6 @@ combo_t key_combos[COMBO_COUNT] = {
   [WX_CX] = COMBO(wx_combo, LCTL(KC_X)),
   [EC_CC] = COMBO(ec_combo, LCTL(KC_C)),
   [RV_CV] = COMBO(rv_combo, LCTL(KC_V)),
-  [KL_CTRL] = COMBO(kl_combo, OSM(MOD_LCTL)),
   [FG_PAREN] = COMBO(fg_combo, AUTOCLOS_PAREN),
   [RT_SQBR] = COMBO(rt_combo, AUTOCLOS_SQBRA),
   [VB_CRBR] = COMBO(vb_combo, AUTOCLOS_CURLYBRA),
@@ -143,20 +127,15 @@ combo_t key_combos[COMBO_COUNT] = {
   [ERT_LSQBR] = COMBO(ert_combo, LATEX_SQBRA),
   [CVB_LCRBR] = COMBO(cvb_combo, LATEX_CURLYBRA),
   [DOTCOMMAQ] = COMBO(dotcommaq_combo, KC_ELLIPSIS),
-  [DOTCOMMA_TAB] = COMBO(dotcomma_combo, KC_TAB),
-  [XC_RET] = COMBO(xc_combo, KC_ENT),
   [HJ_QUOTE] = COMBO(hj_combo, AUTOCLOS_QUOTE),
-  [KM_BSPC] = COMBO(km_combo, KC_BSPC),
-  [DV_BSPC] = COMBO(dv_combo, KC_BSPC),
-  [KLM_CBSPC] = COMBO(klm_combo, LCTL(KC_BSPC)),
-  [KDOT_DEL] = COMBO(kdot_combo, KC_DEL),
-  [DX_DEL] = COMBO(dx_combo, KC_DEL),
+  [KM_CBSPC] = COMBO(km_combo, LCTL(KC_BSPC)),
+  [KDOT_CDEL] = COMBO(kdot_combo, LCTL(KC_DEL)),
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-    COMBO(thumbcombos_base_right, LT(U_FUN, KC_PAST)),
+    COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
     COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)),
     COMBO(thumbcombos_nav, KC_DEL),
-    COMBO(thumbcombos_mouse, KC_BTN2),
+    COMBO(thumbcombos_mouse, KC_BTN3),
     COMBO(thumbcombos_media, KC_MUTE),
     COMBO(thumbcombos_num, KC_DOT),
     #if defined (MIRYOKU_LAYERS_FLIP)

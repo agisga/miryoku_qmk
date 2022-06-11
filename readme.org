@@ -8,6 +8,8 @@ make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_ALPHAS=QWERT
 make reviung34:manna-harbour_miryoku:dfu MIRYOKU_ALPHAS=QWERTY MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN
 #+end_src
 
+- May need to add: AVR_CFLAGS="-Wno-array-bounds" (see [[https://github.com/qmk/qmk_firmware/issues/17064]]).
+
 ** My layout as of 2022-02-12
 
 - Based off Miryoku with flipped layers and interted-T nav.
