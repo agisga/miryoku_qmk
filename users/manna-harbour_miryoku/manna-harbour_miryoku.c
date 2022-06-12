@@ -37,7 +37,7 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
 const uint16_t PROGMEM thumbcombos_base_right[] = {LT(U_SYM, KC_ENT), LT(U_NUM, KC_BSPC), COMBO_END};
-const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_TAB), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
 const uint16_t PROGMEM thumbcombos_media[] = {KC_MSTP, KC_MPLY, COMBO_END};
@@ -76,6 +76,7 @@ enum combos {
   HJ_QUOTE,
   KM_CBSPC,
   KDOT_CDEL,
+  JKL_TAB,
 };
 
 const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(U_BUTTON,KC_Z), COMBO_END};
@@ -102,6 +103,7 @@ const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, ALGR_T(KC_DOT), LT(U_BUTTO
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM km_combo[] = {LCTL_T(KC_K), KC_M, COMBO_END};
 const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_K), ALGR_T(KC_DOT), COMBO_END};
+const uint16_t PROGMEM jkl_combo[] = {LALT_T(KC_L), LCTL_T(KC_K), LSFT_T(KC_J), COMBO_END};
 //---
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -130,6 +132,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [HJ_QUOTE] = COMBO(hj_combo, AUTOCLOS_QUOTE),
   [KM_CBSPC] = COMBO(km_combo, LCTL(KC_BSPC)),
   [KDOT_CDEL] = COMBO(kdot_combo, LCTL(KC_DEL)),
+  [JKL_TAB] = COMBO(jkl_combo, KC_TAB),
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
     COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
