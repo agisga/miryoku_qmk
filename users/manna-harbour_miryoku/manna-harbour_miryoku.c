@@ -15,6 +15,23 @@ MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 };
 
+
+//--- key overrides (used for custom shift behaviour)
+const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t delete_mt_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(U_NUM,KC_BSPC), KC_DEL);
+const key_override_t tab_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SPC, KC_TAB);
+const key_override_t tab_mt_key_override = ko_make_basic(MOD_MASK_SHIFT, LT(U_SYM,KC_SPC), KC_TAB);
+
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &delete_key_override,
+    &delete_mt_key_override,
+    &tab_key_override,
+    &tab_mt_key_override,
+    NULL // Null terminate the array of overrides!
+};
+
+
 //--- used for "super-alt-tab" and other custom macros
 enum custom_keycodes {
   ONENOTE_ASDF = SAFE_RANGE,
