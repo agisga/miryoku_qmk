@@ -53,7 +53,7 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 //---
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), LT(U_NUM, KC_TAB), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), LT(U_NUM, KC_BSPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_SYM, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
@@ -96,8 +96,8 @@ enum combos {
   JKL_TAB,
 };
 
-const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(U_BUTTON,KC_Z), COMBO_END};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
+const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(U_FUN,KC_Z), COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_FUN,KC_Z), COMBO_END};
 const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_S), ALGR_T(KC_X), COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_D), KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_F), KC_V, COMBO_END};
@@ -116,7 +116,7 @@ const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM dfg_combo[] = {LCTL_T(KC_D), LSFT_T(KC_F), KC_G, COMBO_END};
 const uint16_t PROGMEM ert_combo[] = {KC_E, KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM cvb_combo[] = {KC_C, KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, ALGR_T(KC_DOT), LT(U_BUTTON,KC_SLSH), COMBO_END};
+const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, ALGR_T(KC_DOT), LT(U_MEDIA,KC_SLSH), COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM km_combo[] = {LCTL_T(KC_K), KC_M, COMBO_END};
 const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_K), ALGR_T(KC_DOT), COMBO_END};
