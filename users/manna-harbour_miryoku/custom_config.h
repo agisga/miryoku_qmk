@@ -20,7 +20,7 @@ U_NP,              U_NP,              LT(U_FUN,KC_DEL),  LT(U_NUM,KC_BSPC), OSM(
 
 
 #define MIRYOKU_LAYER_SYM \
-KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              DF(U_BASE),        DF(U_EXTRA),       U_NA,              RESET,             \
+KC_LCBR,           KC_AMPR,           KC_ASTR,           KC_LPRN,           KC_RCBR,           U_NA,              DYN_REC_STOP,      DYN_MACRO_PLAY1,   DYN_REC_START1,    RESET,             \
 KC_COLN,           KC_DLR,            KC_PERC,           KC_CIRC,           KC_PLUS,           MO(U_MOUSE),       KC_BSPC,           KC_BSPC,           KC_BSPC,           KC_BSPC,           \
 KC_TILD,           KC_EXLM,           KC_AT,             KC_HASH,           KC_PIPE,           KC_UNDS,           KC_MINUS,          KC_LT,             KC_GT,             KC_QUESTION,              \
 U_NP,              U_NP,              KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
