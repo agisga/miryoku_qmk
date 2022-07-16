@@ -3,8 +3,6 @@
 
 // This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-// FIXME: There is a bug in this file. When making a new keyboard that was not already set up with a closer to default miryoku (e.g., `make draculad:manna-harbour_miryoku:dfu`), there are many error messages related to the key combos (e.g., `Error: 'COMBO_END' undeclared here (not in a function); did you mean 'COMBO_TERM'?`, `error: unknown type name 'combo_t'`). However, if we revert this file to its upstream version, then make and flash the new keyboard, and then change this file back to this current version, then after this process the `make` command executes with no errors and flashes the keyboard successfully.
-
 #include QMK_KEYBOARD_H
 
 #include "manna-harbour_miryoku.h"
