@@ -74,9 +74,9 @@ enum combos {
   CVB_LCRBR,
   DOTCOMMAQ,
   HJ_QUOTE,
-  KM_CBSPC,
+  YH_TAB,
   KDOT_CDEL,
-  JKL_TAB,
+  JKL_CBSPC,
 };
 
 const uint16_t PROGMEM qz_combo[] = {KC_Q, KC_Z, COMBO_END};
@@ -101,7 +101,7 @@ const uint16_t PROGMEM ert_combo[] = {KC_F, KC_P, KC_G, COMBO_END};
 const uint16_t PROGMEM cvb_combo[] = {KC_C, KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, KC_DOT, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_N), COMBO_END};
-const uint16_t PROGMEM km_combo[] = {LCTL_T(KC_E), KC_M, COMBO_END};
+const uint16_t PROGMEM yh_combo[] = {KC_J, KC_H, COMBO_END};
 const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_E), KC_DOT, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), COMBO_END};
 //---
@@ -130,9 +130,9 @@ combo_t key_combos[COMBO_COUNT] = {
   [CVB_LCRBR] = COMBO(cvb_combo, LATEX_CURLYBRA),
   [DOTCOMMAQ] = COMBO(dotcommaq_combo, KC_ELLIPSIS),
   [HJ_QUOTE] = COMBO(hj_combo, AUTOCLOS_QUOTE),
-  [KM_CBSPC] = COMBO(km_combo, LCTL(KC_BSPC)),
+  [YH_TAB] = COMBO(yh_combo, KC_TAB),
   [KDOT_CDEL] = COMBO(kdot_combo, LCTL(KC_DEL)),
-  [JKL_TAB] = COMBO(jkl_combo, KC_TAB),
+  [JKL_CBSPC] = COMBO(jkl_combo, LCTL(KC_BSPC)),
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
     COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),

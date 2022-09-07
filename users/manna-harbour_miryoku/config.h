@@ -41,6 +41,6 @@
 #else
   #define COMBO_COUNT 26
 #endif
-#define COMBO_TERM 50
+#define COMBO_TERM 30
 #define EXTRA_SHORT_COMBOS
 
