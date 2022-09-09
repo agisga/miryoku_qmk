@@ -10,6 +10,7 @@
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 250
+#define TAPPING_TERM_PER_KEY  /* Use per key tapping term */
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT

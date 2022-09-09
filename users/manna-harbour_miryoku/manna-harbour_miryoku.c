@@ -61,8 +61,8 @@ enum combos {
   ASDF_NOTE,
   QWER_NOTE,
   SDF_AT,
-  ASD_WT,
-  XCV_ACT,
+  XC_ENT,
+  TG_ENT,
   WX_CX,
   EC_CC,
   RV_CV,
@@ -81,16 +81,16 @@ enum combos {
 
 const uint16_t PROGMEM qz_combo[] = {KC_Q, KC_Z, COMBO_END};
 const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), KC_Z, COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), KC_X, COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM asdf_combo[] = {LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
 const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM sdf_combo[] = {LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
-const uint16_t PROGMEM asd_combo[] = {LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), COMBO_END};
-const uint16_t PROGMEM xcv_combo[] = {LT(U_FUN,KC_X), KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM wx_combo[] = {KC_W, LT(U_FUN,KC_X), COMBO_END};
+const uint16_t PROGMEM tg_combo[] = {KC_D, KC_G, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
 const uint16_t PROGMEM ec_combo[] = {KC_F, KC_C, COMBO_END};
 const uint16_t PROGMEM rv_combo[] = {KC_P, KC_V, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
@@ -117,9 +117,9 @@ combo_t key_combos[COMBO_COUNT] = {
   [ASDF_NOTE] = COMBO(asdf_combo, ONENOTE_ASDF),
   [QWER_NOTE] = COMBO(qwer_combo, ONENOTE_QWER),
   [SDF_AT] = COMBO(sdf_combo, AT_SPECIAL),
-  [ASD_WT] = COMBO(asd_combo, LGUI(KC_TAB)),
-  [XCV_ACT] = COMBO(xcv_combo, LALT(LCTL(KC_TAB))),
-  [WX_CX] = COMBO(wx_combo, LCTL(KC_X)),
+  [TG_ENT] = COMBO(tg_combo, KC_ENT),
+  [XC_ENT] = COMBO(xc_combo, KC_ENT),
+  [WX_CX] = COMBO(wx_combo, KC_X),
   [EC_CC] = COMBO(ec_combo, LCTL(KC_C)),
   [RV_CV] = COMBO(rv_combo, LCTL(KC_V)),
   [FG_PAREN] = COMBO(fg_combo, AUTOCLOS_PAREN),
@@ -150,6 +150,26 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(thumbcombos_fun, KC_APP)
   #endif
 };
+
+
+//--- per key tapping terms
+// shorter tapping terms to activate num layer and shift
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_T):
+            return 150;
+        case LSFT_T(KC_N):
+            return 150;
+        case LSFT_T(KC_F):
+            return 150;
+        case LSFT_T(KC_J):
+            return 150;
+        case LT(U_NUM,KC_BSPC):
+            return 150;
+        default:
+            return TAPPING_TERM;
+    }
+}
 
 
 //--- "super-alt-tab" and other custom macros
