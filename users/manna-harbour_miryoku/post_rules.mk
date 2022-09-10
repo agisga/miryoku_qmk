@@ -1,8 +1,6 @@
 # Copyright 2022 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
-SRC += manna-harbour_miryoku.c # keymaps
-
 # alternative layout options
 
 ifneq ($(strip $(MIRYOKU_ALPHAS)),)
