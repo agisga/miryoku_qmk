@@ -35,7 +35,7 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 //---
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), LT(U_NUM, KC_BSPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), OSL(U_NUM), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_SYM, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
@@ -62,7 +62,7 @@ enum combos {
   QWER_NOTE,
   SDF_AT,
   XC_ENT,
-  TG_ENT,
+  WE_BSPC,
   WX_CX,
   EC_CC,
   RV_CV,
@@ -79,18 +79,18 @@ enum combos {
   JKL_CBSPC,
 };
 
-const uint16_t PROGMEM qz_combo[] = {KC_Q, KC_Z, COMBO_END};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), KC_Z, COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), KC_X, COMBO_END};
+const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(U_NUM,KC_Z), COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_NUM,KC_Z), COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM asdf_combo[] = {LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
 const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, KC_F, KC_P, COMBO_END};
 const uint16_t PROGMEM sdf_combo[] = {LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
-const uint16_t PROGMEM tg_combo[] = {KC_D, KC_G, COMBO_END};
-const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
+const uint16_t PROGMEM we_combo[] = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {LT(U_FUN,KC_X), KC_C, COMBO_END};
+const uint16_t PROGMEM wx_combo[] = {KC_W, LT(U_FUN,KC_X), COMBO_END};
 const uint16_t PROGMEM ec_combo[] = {KC_F, KC_C, COMBO_END};
 const uint16_t PROGMEM rv_combo[] = {KC_P, KC_V, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
@@ -117,9 +117,9 @@ combo_t key_combos[COMBO_COUNT] = {
   [ASDF_NOTE] = COMBO(asdf_combo, ONENOTE_ASDF),
   [QWER_NOTE] = COMBO(qwer_combo, ONENOTE_QWER),
   [SDF_AT] = COMBO(sdf_combo, AT_SPECIAL),
-  [TG_ENT] = COMBO(tg_combo, KC_ENT),
+  [WE_BSPC] = COMBO(we_combo, KC_BSPC),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
-  [WX_CX] = COMBO(wx_combo, KC_X),
+  [WX_CX] = COMBO(wx_combo, LCTL(KC_X)),
   [EC_CC] = COMBO(ec_combo, LCTL(KC_C)),
   [RV_CV] = COMBO(rv_combo, LCTL(KC_V)),
   [FG_PAREN] = COMBO(fg_combo, AUTOCLOS_PAREN),
@@ -157,15 +157,13 @@ combo_t key_combos[COMBO_COUNT] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_T):
-            return 150;
+            return 190;
         case LSFT_T(KC_N):
-            return 150;
+            return 190;
         case LSFT_T(KC_F):
-            return 150;
+            return 190;
         case LSFT_T(KC_J):
-            return 150;
-        case LT(U_NUM,KC_BSPC):
-            return 150;
+            return 190;
         default:
             return TAPPING_TERM;
     }
