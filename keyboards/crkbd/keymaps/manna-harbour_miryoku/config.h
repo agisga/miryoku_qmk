@@ -20,6 +20,9 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
                   K32,  K33,  K34,         K35,  K36,  K37 \
 )
 
+// For some reason this is needed to make the keyboard halves communicate when WS-C controllers are used (Elite-C clones?)
+#define SPLIT_USB_DETECT
+
 // #define MASTER_LEFT
 // #define MASTER_RIGHT
 #define EE_HANDS
@@ -49,8 +52,8 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
     /* Disable the animations you don't want/need.  You will need to disable a good number of these    *
      * because they take up a lot of space.  Disable until you can successfully compile your firmware. */
     #define DISABLE_RGB_MATRIX_ALPHAS_MODS
-    // #define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
-    // #define DISABLE_RGB_MATRIX_BREATHING
+    //#define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+    //#define DISABLE_RGB_MATRIX_BREATHING
     #define DISABLE_RGB_MATRIX_CYCLE_ALL
     #define DISABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
     #define DISABLE_RGB_MATRIX_CYCLE_UP_DOWN
@@ -58,11 +61,11 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
     #define DISABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL
     #define DISABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
     #define DISABLE_RGB_MATRIX_DUAL_BEACON
-    // #define DISABLE_RGB_MATRIX_RAINBOW_BEACON
+    //#define DISABLE_RGB_MATRIX_RAINBOW_BEACON
     #define DISABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-    // #define DISABLE_RGB_MATRIX_RAINDROPS
+    //#define DISABLE_RGB_MATRIX_RAINDROPS
     #define DISABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-    // #define DISABLE_RGB_MATRIX_TYPING_HEATMAP
+    //#define DISABLE_RGB_MATRIX_TYPING_HEATMAP
     #define DISABLE_RGB_MATRIX_DIGITAL_RAIN
     #define DISABLE_RGB_MATRIX_SOLID_REACTIVE
     #define DISABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
@@ -76,4 +79,10 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
     #define DISABLE_RGB_MATRIX_MULTISPLASH
     #define DISABLE_RGB_MATRIX_SOLID_SPLASH
     #define DISABLE_RGB_MATRIX_SOLID_MULTISPLASH
+
+    #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
+    #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+    #define ENABLE_RGB_MATRIX_BREATHING
+    #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
+    #define ENABLE_RGB_MATRIX_RAINDROPS
 #endif
