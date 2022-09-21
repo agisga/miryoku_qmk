@@ -52,7 +52,7 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
     /* Disable the animations you don't want/need.  You will need to disable a good number of these    *
      * because they take up a lot of space.  Disable until you can successfully compile your firmware. */
     #define DISABLE_RGB_MATRIX_ALPHAS_MODS
-    //#define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
+    #define DISABLE_RGB_MATRIX_GRADIENT_UP_DOWN
     //#define DISABLE_RGB_MATRIX_BREATHING
     #define DISABLE_RGB_MATRIX_CYCLE_ALL
     #define DISABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
@@ -81,7 +81,6 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
     #define DISABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
     #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
-    #define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
     #define ENABLE_RGB_MATRIX_BREATHING
     #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
     #define ENABLE_RGB_MATRIX_RAINDROPS
