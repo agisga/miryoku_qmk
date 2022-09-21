@@ -38,9 +38,9 @@
 // Thumb Combos, and other combos
 #define COMBO_ONLY_FROM_LAYER 0  // the thumb combos defined for sublayers will not work if this is enabled, but all other combos will work on alternate alpha layers
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 33
+  #define COMBO_COUNT 34
 #else
-  #define COMBO_COUNT 26
+  #define COMBO_COUNT 27
 #endif
 #define COMBO_TERM 30
 #define EXTRA_SHORT_COMBOS

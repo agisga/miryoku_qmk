@@ -72,9 +72,10 @@ enum combos {
   DFG_LPAREN,
   ERT_LSQBR,
   CVB_LCRBR,
+  DOTCOMMA,
   DOTCOMMAQ,
   HJ_QUOTE,
-  YH_TAB,
+  IO_TAB,
   KDOT_CDEL,
   JKL_CBSPC,
 };
@@ -99,9 +100,10 @@ const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM dfg_combo[] = {LCTL_T(KC_S), LSFT_T(KC_T), KC_D, COMBO_END};
 const uint16_t PROGMEM ert_combo[] = {KC_F, KC_P, KC_G, COMBO_END};
 const uint16_t PROGMEM cvb_combo[] = {KC_C, KC_V, KC_B, COMBO_END};
+const uint16_t PROGMEM dotcomma_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, KC_DOT, KC_SLSH, COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_N), COMBO_END};
-const uint16_t PROGMEM yh_combo[] = {KC_J, KC_H, COMBO_END};
+const uint16_t PROGMEM io_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_E), KC_DOT, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), COMBO_END};
 //---
@@ -128,9 +130,10 @@ combo_t key_combos[COMBO_COUNT] = {
   [DFG_LPAREN] = COMBO(dfg_combo, LATEX_PAREN),
   [ERT_LSQBR] = COMBO(ert_combo, LATEX_SQBRA),
   [CVB_LCRBR] = COMBO(cvb_combo, LATEX_CURLYBRA),
+  [DOTCOMMA] = COMBO(dotcomma_combo, KC_ESC),
   [DOTCOMMAQ] = COMBO(dotcommaq_combo, KC_ELLIPSIS),
   [HJ_QUOTE] = COMBO(hj_combo, AUTOCLOS_QUOTE),
-  [YH_TAB] = COMBO(yh_combo, KC_TAB),
+  [IO_TAB] = COMBO(io_combo, KC_TAB),
   [KDOT_CDEL] = COMBO(kdot_combo, LCTL(KC_DEL)),
   [JKL_CBSPC] = COMBO(jkl_combo, LCTL(KC_BSPC)),
   //---
