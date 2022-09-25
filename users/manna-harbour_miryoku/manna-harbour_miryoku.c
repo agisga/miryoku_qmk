@@ -35,8 +35,8 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 //---
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {OSM(MOD_LSFT), OSL(U_NUM), COMBO_END};
-const uint16_t PROGMEM thumbcombos_base_left[] = {OSL(U_NAV), LT(U_MOUSE, KC_SPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {OSL(U_SYM), OSL(U_NUM), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_APP, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
 const uint16_t PROGMEM thumbcombos_media[] = {KC_MSTP, KC_MPLY, COMBO_END};
