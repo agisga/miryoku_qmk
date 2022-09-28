@@ -319,7 +319,9 @@ void process_action(keyrecord_t *record, action_t action) {
 #ifndef NO_ACTION_ONESHOT
     bool do_release_oneshot = false;
     // notice we only clear the one shot layer if the pressed key is not a modifier.
-    if (is_oneshot_layer_active() && event.pressed && (action.kind.id == ACT_USAGE || !IS_MOD(action.key.code))
+    // Alexej: patched according to https://github.com/qmk/qmk_firmware/issues/6943#issuecomment-1223723779, in order to keep the OSL on when an OSM is pressed.
+    if (is_oneshot_layer_active() && event.pressed && (action.kind.id == ACT_USAGE || !(IS_MOD(action.key.code) ||
+                (action.kind.id & ACT_MODS_TAP && (action.layer_tap.code == MODS_ONESHOT || action.layer_tap.code == MODS_TAP_TOGGLE))))
 #    ifdef SWAP_HANDS_ENABLE
         && !(action.kind.id == ACT_SWAP_HANDS && action.swap.code == OP_SH_ONESHOT)
 #    endif
