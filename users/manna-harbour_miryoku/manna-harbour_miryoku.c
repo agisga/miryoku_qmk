@@ -80,9 +80,9 @@ enum combos {
   JKL_CBSPC,
 };
 
-const uint16_t PROGMEM qz_combo[] = {KC_Q, LT(U_NUM,KC_Z), COMBO_END};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_NUM,KC_Z), COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
+const uint16_t PROGMEM qz_combo[] = {KC_Q, KC_Z, COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), KC_Z, COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), KC_X, COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
@@ -90,8 +90,8 @@ const uint16_t PROGMEM asdf_combo[] = {LGUI_T(KC_A), LALT_T(KC_R), LCTL_T(KC_S),
 const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, LT(U_SYM,KC_F), KC_P, COMBO_END};
 const uint16_t PROGMEM sdf_combo[] = {LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
 const uint16_t PROGMEM we_combo[] = {KC_W, LT(U_SYM,KC_F), COMBO_END};
-const uint16_t PROGMEM xc_combo[] = {LT(U_FUN,KC_X), KC_C, COMBO_END};
-const uint16_t PROGMEM wx_combo[] = {KC_W, LT(U_FUN,KC_X), COMBO_END};
+const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
 const uint16_t PROGMEM ec_combo[] = {LT(U_SYM,KC_F), KC_C, COMBO_END};
 const uint16_t PROGMEM rv_combo[] = {KC_P, KC_V, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
