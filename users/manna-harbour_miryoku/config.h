@@ -40,7 +40,7 @@
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
   #define COMBO_COUNT 34
 #else
-  #define COMBO_COUNT 27
+  #define COMBO_COUNT 26
 #endif
 #define COMBO_TERM 30
 #define EXTRA_SHORT_COMBOS
