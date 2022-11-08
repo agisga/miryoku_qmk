@@ -203,7 +203,7 @@ combo_t key_combos[COMBO_COUNT] = {
 
 
 //--- per key tapping terms
-// shorter tapping terms to activate num layer and shift
+// shorter tapping terms for thumb keys and shift
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LSFT_T(KC_T):
@@ -213,6 +213,12 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LSFT_T(KC_F):
             return 190;
         case LSFT_T(KC_J):
+            return 190;
+        case LT(U_MOUSE,KC_SPC):
+            return 190;
+        case LT(U_NAV,KC_SPC):
+            return 190;
+        case LT(U_MEDIA,KC_ESC):
             return 190;
         default:
             return TAPPING_TERM;
