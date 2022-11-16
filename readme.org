@@ -16,6 +16,19 @@ make clean crkbd:manna-harbour_miryoku:dfu-split-right MIRYOKU_LAYERS=FLIP MIRYO
 
 - May need to add: `AVR_CFLAGS="-Wno-array-bounds"` (see [[https://github.com/qmk/qmk_firmware/issues/17064]]).
 
+** crkbd with rp2040 controllers (boardsource blok, specifically)
+
+1. Use the "develop" branch of the upstream QMK repo
+2. Maybe need to run `make git-submodule`
+3. Copy my version of the manna-harbour user and crkbd keymap directories, but remove this line: https://github.com/agisga/miryoku_qmk/blob/b85ca98babe34f6e40181079bcb4b4d5e2f549e6/keyboards/crkbd/keymaps/manna-harbour_miryoku/config.h#L24
+4. For some reason in my initial experiments the split keyboard works only when the right side is plugged in, regardless of the handedness settings. So, I just enable `MASTER_RIGHT` here: https://github.com/agisga/miryoku_qmk/blob/b85ca98babe34f6e40181079bcb4b4d5e2f549e6/keyboards/crkbd/keymaps/manna-harbour_miryoku/config.h#L27
+5. Run (note the `CONVERT_TO=blok`):
+    #+begin_src
+    make clean crkbd:manna-harbour_miryoku MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
+    make clean crkbd:manna-harbour_miryoku MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
+    #+end_src
+6. Copy the generated `.uf2` file to the rp2040 controller when it is in the bootloader mode.
+
 ------------------------------------------
 
 # Copyright 2019 Manna Harbour
