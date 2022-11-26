@@ -20,18 +20,29 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
                   K32,  K33,  K34,         K35,  K36,  K37 \
 )
 
-// For some reason this is needed to make the keyboard halves communicate when WS-C controllers are used (Elite-C clones?)
-#define SPLIT_USB_DETECT
 
-// #define MASTER_LEFT
-// #define MASTER_RIGHT
-#define EE_HANDS
+#ifdef CONVERT_TO_BLOK
+    // boardsource BLOK code
 
+    // For some reason Corne with BLOK controller only works when plugged in through the right side; so, can state that explicitly just as well.
+    #define MASTER_RIGHT
+
+    // RGB stuff
+    #define RGBLIGHT_SPLIT
+    #define RGB_MATRIX_ENABLE
+#else
+    // Pro Micro code, no RGB
+
+    // For some reason this is needed to make the keyboard halves communicate when WS-C controllers are used (Elite-C clones?)
+    #define SPLIT_USB_DETECT
+
+    // #define MASTER_LEFT
+    // #define MASTER_RIGHT
+    #define EE_HANDS
+#endif
 
 //--- per-key RGB settings ---
 // based on davidrambo/config.h
-
-#define RGBLIGHT_SPLIT
 
 #ifdef RGB_MATRIX_ENABLE
     #define RGB_MATRIX_STARTUP_HUE 231
