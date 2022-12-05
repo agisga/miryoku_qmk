@@ -24,12 +24,11 @@ XXX,  K20,  K21,  K22,  K23,  K24,         K25,  K26,  K27,  K28,  K29,  XXX , \
 #ifdef CONVERT_TO_BLOK
     // boardsource BLOK code
 
-    // For some reason Corne with BLOK controller only works when plugged in through the right side; so, can state that explicitly just as well.
-    #define MASTER_RIGHT
+    #define EE_HANDS
 
     // RGB stuff
     #define RGBLIGHT_SPLIT
-    #define RGB_MATRIX_ENABLE
+    //#define RGB_MATRIX_ENABLE  // FIXME: for some reason RGB_MATRIX_ENABLE doesn't work when enabled from here, but only works when enabled from rules.mk
 #else
     // Pro Micro code, no RGB
 

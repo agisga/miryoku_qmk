@@ -9,25 +9,27 @@ make ferris/sweep:manna-harbour_miryoku:avrdude-split-right MIRYOKU_LAYERS=FLIP 
 make clean reviung/reviung34:manna-harbour_miryoku:dfu MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
 
 make clean b_sides/rev41lp:manna-harbour_miryoku:dfu MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
+#+end_src
 
+- (For outdated QMK versions) May need to add: `AVR_CFLAGS="-Wno-array-bounds"` (see [[https://github.com/qmk/qmk_firmware/issues/17064]]).
+  
+** Corne / crkbd
+*** Elite-C, WS-C
+- May need to disable rgb matrix in =rules.mk= if there are space issues.
+#+begin_src
 make clean crkbd:manna-harbour_miryoku:dfu-split-left MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
 make clean crkbd:manna-harbour_miryoku:dfu-split-right MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
 #+end_src
-
-- May need to add: `AVR_CFLAGS="-Wno-array-bounds"` (see [[https://github.com/qmk/qmk_firmware/issues/17064]]).
-
-** crkbd with rp2040 controllers (boardsource blok, specifically)
-
-1. Use the "develop" branch of the upstream QMK repo
-2. Maybe need to run `make git-submodule`
-3. Copy my version of the manna-harbour user and crkbd keymap directories, but remove this line: https://github.com/agisga/miryoku_qmk/blob/b85ca98babe34f6e40181079bcb4b4d5e2f549e6/keyboards/crkbd/keymaps/manna-harbour_miryoku/config.h#L24
-4. For some reason in my initial experiments the split keyboard works only when the right side is plugged in, regardless of the handedness settings. So, I just enable `MASTER_RIGHT` here: https://github.com/agisga/miryoku_qmk/blob/b85ca98babe34f6e40181079bcb4b4d5e2f549e6/keyboards/crkbd/keymaps/manna-harbour_miryoku/config.h#L27
-5. Run (note the `CONVERT_TO=blok`):
+*** crkbd with rp2040 controllers (boardsource blok, specifically)
+- Maybe need to run =make git-submodule=; but actually that seems to set submodules to commits that are too old for this (as of <2022-12-04 Sun>); So, I ended up running =git submodule update --remote=, and it worked fine. 
+- To put BLOK in bootloader mode, hold the tiny button under the "X" on the boards body while plugging the USB cable in.
+- Run (note the `CONVERT_TO=blok`):
     #+begin_src
-    make clean crkbd:manna-harbour_miryoku MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
-    make clean crkbd:manna-harbour_miryoku MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
+    make clean crkbd:manna-harbour_miryoku:uf2-split-left MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
+    make clean crkbd:manna-harbour_miryoku:uf2-split-right MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
     #+end_src
-6. Copy the generated `.uf2` file to the rp2040 controller when it is in the bootloader mode.
+
+- If the direct flashing doesn't work, could run without =:uf2-split-left=, and then copy the generated `.uf2` file to the rp2040 controller when it is in the bootloader mode. In that case, =#define EE_HANDS= has to be replaced by for example =#define MASTER_RIGHT= in the =config.h= file of the miryoku corne keymap.
 
 ------------------------------------------
 
