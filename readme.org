@@ -22,7 +22,7 @@ make clean crkbd:manna-harbour_miryoku:dfu-split-right MIRYOKU_LAYERS=FLIP MIRYO
 #+end_src
 *** crkbd with rp2040 controllers (boardsource blok, specifically)
 - Maybe need to run =make git-submodule=; but actually that seems to set submodules to commits that are too old for this (as of <2022-12-04 Sun>); So, I ended up running =git submodule update --remote=, and it worked fine. 
-- To put BLOK in bootloader mode, hold the tiny button under the "X" on the boards body while plugging the USB cable in.
+- To put BLOK in bootloader mode, hold the tiny button under the "X" on the boards body while plugging the USB cable in. Double tapping the reset button also works. Double tapping the programmed reset key from the miryoku keymap also works.
 - Run (note the `CONVERT_TO=blok`):
     #+begin_src
     make clean crkbd:manna-harbour_miryoku:uf2-split-left MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK CONVERT_TO=blok
