@@ -344,10 +344,10 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-TD(U_TD_BOOT),     TD(U_TD_U_TAP),    U_NA,              TD(U_TD_U_BASE),   KC_SCLN,           KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
+TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   KC_SCLN,           KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           KC_COLN,           KC_EQL,            KC_1,              KC_2,              KC_3,              KC_0,              \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             KC_BSLS,           KC_4,              KC_5,              KC_6,              KC_GRV,            \
-U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_UNDS,           KC_MINS,           KC_DOT,            U_NP,              U_NP
+U_NP,              U_NP,              KC_ASTR,           U_NA,              KC_ASTR,           KC_UNDS,           KC_MINS,           KC_DOT,            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NUM \
 KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
