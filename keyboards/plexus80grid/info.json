@@ -33,7 +33,8 @@
         "brightness_steps": 12,
         "animations": {
             "breathing": true,
-            "knight": true
+            "knight": true,
+            "rainbow_swirl": true
         }
     }
     "layouts": {

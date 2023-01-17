@@ -1048,9 +1048,6 @@
     "plexus75": {
         "target": "checkerboards/plexus75"
     },
-    "plexus80": {
-        "target": "checkerboards/plexus80"
-    },
     "pursuit40": {
         "target": "checkerboards/pursuit40"
     },

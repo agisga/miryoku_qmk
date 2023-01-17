@@ -34,14 +34,3 @@
 #define MOUSEKEY_MAX_SPEED      6
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
-
-// Thumb Combos, and other combos
-#define COMBO_ONLY_FROM_LAYER 0  // the thumb combos defined for sublayers will not work if this is enabled, but all other combos will work on alternate alpha layers
-#if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 36
-#else
-  #define COMBO_COUNT 28
-#endif
-#define COMBO_TERM 30
-#define EXTRA_SHORT_COMBOS
-

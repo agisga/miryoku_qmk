@@ -10,7 +10,9 @@ make clean reviung/reviung34:manna-harbour_miryoku:dfu MIRYOKU_LAYERS=FLIP MIRYO
 
 make clean b_sides/rev41lp:manna-harbour_miryoku:dfu MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
 
-make clean checkerboards/plexus80:manna-harbour_miryoku:flash MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
+git checkout plexus80
+make clean plexus80grid:manna-harbour_miryoku:flash MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
+git checkout miryoku
 #+end_src
 
 - (For outdated QMK versions) May need to add: `AVR_CFLAGS="-Wno-array-bounds"` (see [[https://github.com/qmk/qmk_firmware/issues/17064]]).
