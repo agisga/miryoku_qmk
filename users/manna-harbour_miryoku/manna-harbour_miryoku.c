@@ -110,9 +110,6 @@ enum combos {
   SDF_AT,
   XC_ENT,
   WE_BSPC,
-  WX_CX,
-  EC_CC,
-  RV_CV,
   FG_PAREN,
   RT_SQBR,
   VB_CRBR,
@@ -125,8 +122,6 @@ enum combos {
   IO_TAB,
   KDOT_CDEL,
   JKL_CBSPC,
-  RF_PTAB,
-  TG_NTAB,
 };
 
 const uint16_t PROGMEM qz_combo[] = {KC_Q, ALGR_T(KC_Z), COMBO_END};
@@ -140,9 +135,6 @@ const uint16_t PROGMEM qwer_combo[] = {KC_Q, KC_W, LT(U_SYM,KC_F), KC_P, COMBO_E
 const uint16_t PROGMEM sdf_combo[] = {LALT_T(KC_R), LCTL_T(KC_S), LSFT_T(KC_T), COMBO_END};
 const uint16_t PROGMEM we_combo[] = {KC_W, LT(U_SYM,KC_F), COMBO_END};
 const uint16_t PROGMEM xc_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM wx_combo[] = {KC_W, KC_X, COMBO_END};
-const uint16_t PROGMEM ec_combo[] = {LT(U_SYM,KC_F), KC_C, COMBO_END};
-const uint16_t PROGMEM rv_combo[] = {KC_P, KC_V, COMBO_END};
 const uint16_t PROGMEM fg_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
 const uint16_t PROGMEM rt_combo[] = {KC_P, KC_G, COMBO_END};
 const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
@@ -155,8 +147,6 @@ const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_N), COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_E), KC_DOT, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), COMBO_END};
-const uint16_t PROGMEM rf_combo[] = {KC_P, LSFT_T(KC_T), COMBO_END};
-const uint16_t PROGMEM tg_combo[] = {KC_G, KC_D, COMBO_END};
 //---
 
 combo_t key_combos[COMBO_COUNT] = {
@@ -172,9 +162,6 @@ combo_t key_combos[COMBO_COUNT] = {
   [SDF_AT] = COMBO(sdf_combo, AT_SPECIAL),
   [WE_BSPC] = COMBO(we_combo, KC_BSPC),
   [XC_ENT] = COMBO(xc_combo, KC_ENT),
-  [WX_CX] = COMBO(wx_combo, LCTL(KC_X)),
-  [EC_CC] = COMBO(ec_combo, LCTL(KC_C)),
-  [RV_CV] = COMBO(rv_combo, LCTL(KC_V)),
   [FG_PAREN] = COMBO(fg_combo, AUTOCLOS_PAREN),
   [RT_SQBR] = COMBO(rt_combo, AUTOCLOS_SQBRA),
   [VB_CRBR] = COMBO(vb_combo, AUTOCLOS_CURLYBRA),
@@ -187,8 +174,6 @@ combo_t key_combos[COMBO_COUNT] = {
   [IO_TAB] = COMBO(io_combo, KC_TAB),
   [KDOT_CDEL] = COMBO(kdot_combo, LCTL(KC_DEL)),
   [JKL_CBSPC] = COMBO(jkl_combo, LCTL(KC_BSPC)),
-  [RF_PTAB] = COMBO(rf_combo, LCTL(KC_PGUP)),
-  [TG_NTAB] = COMBO(tg_combo, LCTL(KC_PGDN)),
   //---
   #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
     COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),

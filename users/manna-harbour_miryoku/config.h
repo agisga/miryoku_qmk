@@ -20,7 +20,7 @@
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT 135
+#define AUTO_SHIFT_TIMEOUT 145
 #define AUTO_SHIFT_NO_SETUP
 
 // Mouse key speed and acceleration.
@@ -38,9 +38,9 @@
 // Thumb Combos, and other combos
 #define COMBO_ONLY_FROM_LAYER 0  // the thumb combos defined for sublayers will not work if this is enabled, but all other combos will work on alternate alpha layers
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 36
+  #define COMBO_COUNT 31
 #else
-  #define COMBO_COUNT 28
+  #define COMBO_COUNT 23
 #endif
 #define COMBO_TERM 30
 #define EXTRA_SHORT_COMBOS
