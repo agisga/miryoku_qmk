@@ -129,8 +129,8 @@ enum combos {
   TG_NTAB,
 };
 
-const uint16_t PROGMEM qz_combo[] = {KC_Q, KC_Z, COMBO_END};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), KC_Z, COMBO_END};
+const uint16_t PROGMEM qz_combo[] = {KC_Q, ALGR_T(KC_Z), COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), ALGR_T(KC_Z), COMBO_END};
 const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), KC_X, COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
@@ -149,11 +149,11 @@ const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM dfg_combo[] = {LCTL_T(KC_S), LSFT_T(KC_T), KC_D, COMBO_END};
 const uint16_t PROGMEM ert_combo[] = {LT(U_SYM,KC_F), KC_P, KC_G, COMBO_END};
 const uint16_t PROGMEM cvb_combo[] = {KC_C, KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM dotcomma_combo[] = {KC_COMMA, ALGR_T(KC_DOT), COMBO_END};
-const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, ALGR_T(KC_DOT), LT(U_BUTTON,KC_SLSH), COMBO_END};
+const uint16_t PROGMEM dotcomma_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
+const uint16_t PROGMEM dotcommaq_combo[] = {KC_COMMA, KC_DOT, LT(U_BUTTON,KC_SLSH), COMBO_END};
 const uint16_t PROGMEM hj_combo[] = {KC_H, LSFT_T(KC_N), COMBO_END};
 const uint16_t PROGMEM io_combo[] = {KC_U, KC_Y, COMBO_END};
-const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_E), ALGR_T(KC_DOT), COMBO_END};
+const uint16_t PROGMEM kdot_combo[] = {LCTL_T(KC_E), KC_DOT, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {LSFT_T(KC_N), LCTL_T(KC_E), LALT_T(KC_I), COMBO_END};
 const uint16_t PROGMEM rf_combo[] = {KC_P, LSFT_T(KC_T), COMBO_END};
 const uint16_t PROGMEM tg_combo[] = {KC_G, KC_D, COMBO_END};
