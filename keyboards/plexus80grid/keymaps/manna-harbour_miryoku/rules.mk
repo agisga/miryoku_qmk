@@ -9,5 +9,7 @@ COMMAND_ENABLE = no
 AUDIO_ENABLE = no           # Audio output
 MAGIC_ENABLE = no
 
+EXTRAFLAGS += -flto
+
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
