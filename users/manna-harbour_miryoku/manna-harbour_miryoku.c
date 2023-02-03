@@ -11,6 +11,10 @@
 //--- used for "super-alt-tab" and other custom macros
 enum custom_keycodes {
   AT_SPECIAL = SAFE_RANGE,
+  AUTOCLOS_PAREN,
+  AUTOCLOS_SQBRA,
+  AUTOCLOS_CURLYBRA,
+  AUTOCLOS_QUOTE,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -120,6 +124,30 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             unregister_code(KC_TAB);
         }
         break;
+
+    case AUTOCLOS_PAREN:
+      if (record->event.pressed) {
+          SEND_STRING("()" SS_TAP(X_LEFT));
+      }
+      break;
+
+    case AUTOCLOS_SQBRA:
+      if (record->event.pressed) {
+          SEND_STRING("[]" SS_TAP(X_LEFT));
+      }
+      break;
+
+    case AUTOCLOS_CURLYBRA:
+      if (record->event.pressed) {
+          SEND_STRING("{}" SS_TAP(X_LEFT));
+      }
+      break;
+
+    case AUTOCLOS_QUOTE:
+      if (record->event.pressed) {
+          SEND_STRING("\"\"" SS_TAP(X_LEFT));
+      }
+      break;
   }
 return true;
 }
