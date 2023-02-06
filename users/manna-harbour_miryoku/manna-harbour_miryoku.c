@@ -37,13 +37,13 @@ enum custom_keycodes {
   AT_SPECIAL,
   AST_SPECIAL,
   KC_ELLIPSIS,
-  AUTOCLOS_PAREN,
-  AUTOCLOS_SQBRA,
-  AUTOCLOS_CURLYBRA,
-  AUTOCLOS_QUOTE,
-  LATEX_PAREN,
-  LATEX_SQBRA,
-  LATEX_CURLYBRA,
+  KC_AUTOCLOS_PAREN,
+  KC_AUTOCLOS_SQBRA,
+  KC_AUTOCLOS_CURLYBRA,
+  KC_AUTOCLOS_QUOTE,
+  KC_LATEX_PAREN,
+  KC_LATEX_SQBRA,
+  KC_LATEX_CURLYBRA,
   KC_QU,
   KC_QUE,
   KC_COLONQ,
@@ -111,8 +111,8 @@ void ql_finished (qk_tap_dance_state_t *state, void *user_data) {
     case SINGLE_TAP:
       set_oneshot_mods(MOD_BIT(KC_LSFT)); break;     // emulate OSM for Shift
     case SINGLE_HOLD:
-      //register_code(KC_LSFT); break;                // normal modifier (Shift) when held down
-      layer_on(U_SYM); break;                       // layer on when held down
+      register_code(KC_LSFT); break;                // normal modifier (Shift) when held down
+      //layer_on(U_SYM); break;                       // layer on when held down
     case DOUBLE_TAP:
       tap_code(KC_ENT); break;                      // Enter when tapped twice
   }
@@ -121,9 +121,8 @@ void ql_finished (qk_tap_dance_state_t *state, void *user_data) {
 void ql_reset (qk_tap_dance_state_t *state, void *user_data) {
   switch (ql_tap_state.state) {
     case SINGLE_TAP: break;
-    //case SINGLE_HOLD: clear_oneshot_mods(); unregister_code(KC_LSFT); break;
-    //if the key was held down and now is released then switch off the layer
-    case SINGLE_HOLD: clear_oneshot_mods(); layer_off(U_SYM);
+    case SINGLE_HOLD: clear_oneshot_mods(); unregister_code(KC_LSFT); break;
+    //case SINGLE_HOLD: clear_oneshot_mods(); layer_off(U_SYM);
     case DOUBLE_TAP: break;
   }
   ql_tap_state.state = 0;
@@ -272,43 +271,43 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case AUTOCLOS_PAREN:
+    case KC_AUTOCLOS_PAREN:
       if (record->event.pressed) {
           SEND_STRING("()" SS_TAP(X_LEFT));
       }
       break;
 
-    case AUTOCLOS_SQBRA:
+    case KC_AUTOCLOS_SQBRA:
       if (record->event.pressed) {
           SEND_STRING("[]" SS_TAP(X_LEFT));
       }
       break;
 
-    case AUTOCLOS_CURLYBRA:
+    case KC_AUTOCLOS_CURLYBRA:
       if (record->event.pressed) {
           SEND_STRING("{}" SS_TAP(X_LEFT));
       }
       break;
 
-    case AUTOCLOS_QUOTE:
+    case KC_AUTOCLOS_QUOTE:
       if (record->event.pressed) {
           SEND_STRING("\"\"" SS_TAP(X_LEFT));
       }
       break;
 
-    case LATEX_PAREN:
+    case KC_LATEX_PAREN:
       if (record->event.pressed) {
           SEND_STRING("\\left(\\right)" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
       }
       break;
 
-    case LATEX_SQBRA:
+    case KC_LATEX_SQBRA:
       if (record->event.pressed) {
           SEND_STRING("\\left[\\right]" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
       }
       break;
 
-    case LATEX_CURLYBRA:
+    case KC_LATEX_CURLYBRA:
       if (record->event.pressed) {
           SEND_STRING("\\left\\{\\right\\}" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
       }
