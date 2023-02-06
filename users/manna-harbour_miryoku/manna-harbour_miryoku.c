@@ -48,6 +48,7 @@ enum custom_keycodes {
   KC_QUE,
   KC_COLONQ,
   KC_COLONWQ,
+  KC_PARENQ,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -334,6 +335,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_COLONWQ:
       if (record->event.pressed) {
           SEND_STRING(":wq");
+      }
+      break;
+
+    case KC_PARENQ:
+      if (record->event.pressed) {
+          SEND_STRING("(?)");
       }
       break;
   }
