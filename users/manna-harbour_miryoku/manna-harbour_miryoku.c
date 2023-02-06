@@ -10,6 +10,7 @@
 
 //--- tap dance OSM(Shift) and Enter
 // based on https://github.com/samhocevar-forks/qmk-firmware/blob/master/docs/feature_tap_dance.md#example-6-using-tap-dance-for-momentary-layer-switch-and-layer-toggle-keys
+
 typedef struct {
   bool is_press_action;
   int state;
@@ -22,16 +23,8 @@ enum {
   DOUBLE_TAP = 3
 };
 
-enum {
-  OSM_LSFT_ENT = 0     //Our custom tap dance key; add any other tap dance keys to this enum 
-};
-
 //Declare the functions to be used with your tap dance key(s)
-
-//Function associated with all tap dances
 int cur_dance (qk_tap_dance_state_t *state);
-
-//Functions associated with individual tap dances
 void ql_finished (qk_tap_dance_state_t *state, void *user_data);
 void ql_reset (qk_tap_dance_state_t *state, void *user_data);
 //---
@@ -53,6 +46,8 @@ enum custom_keycodes {
   LATEX_CURLYBRA,
   KC_QU,
   KC_QUE,
+  KC_COLONQ,
+  KC_COLONWQ,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -61,8 +56,10 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 
 
 // Additional Features double tap guard
+// Also, Alexej's custom tap dance
 
 enum {
+    OSM_LSFT_ENT, // custom tap dance
     U_TD_BOOT,
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
 MIRYOKU_LAYER_LIST
@@ -83,6 +80,54 @@ void u_td_fn_U_##LAYER(qk_tap_dance_state_t *state, void *user_data) { \
 }
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
+
+//Determine the current tap dance state
+int cur_dance (qk_tap_dance_state_t *state) {
+  if (state->count == 1) {
+    if (!state->pressed) {
+      return SINGLE_TAP;
+    } else {
+      return SINGLE_HOLD;
+    }
+  } else if (state->count == 2) {
+    return DOUBLE_TAP;
+  }
+  else return 8;
+}
+
+//Initialize tap structure associated with tap dance key
+static tap ql_tap_state = {
+  .is_press_action = true,
+  .state = 0
+};
+
+//Functions that control what our tap dance key does
+// cont. tap dance for OSM shift and Enter
+// based on https://github.com/samhocevar-forks/qmk-firmware/blob/master/docs/feature_tap_dance.md#example-6-using-tap-dance-for-momentary-layer-switch-and-layer-toggle-keys
+// and https://www.reddit.com/r/olkb/comments/mxcm9p/tap_dance_to_mimic_two_oneshot_modifiers/
+void ql_finished (qk_tap_dance_state_t *state, void *user_data) {
+  ql_tap_state.state = cur_dance(state);
+  switch (ql_tap_state.state) {
+    case SINGLE_TAP:
+      set_oneshot_mods(MOD_BIT(KC_LSFT)); break;     // emulate OSM for Shift
+    case SINGLE_HOLD:
+      //register_code(KC_LSFT); break;                // normal modifier (Shift) when held down
+      layer_on(U_SYM); break;                       // layer on when held down
+    case DOUBLE_TAP:
+      tap_code(KC_ENT); break;                      // Enter when tapped twice
+  }
+}
+
+void ql_reset (qk_tap_dance_state_t *state, void *user_data) {
+  switch (ql_tap_state.state) {
+    case SINGLE_TAP: break;
+    //case SINGLE_HOLD: clear_oneshot_mods(); unregister_code(KC_LSFT); break;
+    //if the key was held down and now is released then switch off the layer
+    case SINGLE_HOLD: clear_oneshot_mods(); layer_off(U_SYM);
+    case DOUBLE_TAP: break;
+  }
+  ql_tap_state.state = 0;
+}
 
 qk_tap_dance_action_t tap_dance_actions[] = {
     [OSM_LSFT_ENT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset),  // Alexej's custom
@@ -280,54 +325,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           SEND_STRING("que");
       }
       break;
+
+    case KC_COLONQ:
+      if (record->event.pressed) {
+          SEND_STRING(":q");
+      }
+      break;
+
+    case KC_COLONWQ:
+      if (record->event.pressed) {
+          SEND_STRING(":wq");
+      }
+      break;
   }
 return true;
-}
-
-// --- cont. tap dance for OSM shift and Enter
-// based on https://github.com/samhocevar-forks/qmk-firmware/blob/master/docs/feature_tap_dance.md#example-6-using-tap-dance-for-momentary-layer-switch-and-layer-toggle-keys
-// and https://www.reddit.com/r/olkb/comments/mxcm9p/tap_dance_to_mimic_two_oneshot_modifiers/
-
-//Determine the current tap dance state
-int cur_dance (qk_tap_dance_state_t *state) {
-  if (state->count == 1) {
-    if (!state->pressed) {
-      return SINGLE_TAP;
-    } else {
-      return SINGLE_HOLD;
-    }
-  } else if (state->count == 2) {
-    return DOUBLE_TAP;
-  }
-  else return 8;
-}
-
-//Initialize tap structure associated with example tap dance key
-static tap ql_tap_state = {
-  .is_press_action = true,
-  .state = 0
-};
-
-//Functions that control what our tap dance key does
-void ql_finished (qk_tap_dance_state_t *state, void *user_data) {
-  ql_tap_state.state = cur_dance(state);
-  switch (ql_tap_state.state) {
-    case SINGLE_TAP:
-      tap_code(KC_TAB); break;                      // Enter when tapped twice
-      //set_oneshot_mods(MOD_BIT(KC_LSFT)); break;     // emulate OSM for Shift
-    case SINGLE_HOLD:
-      register_code(KC_LSFT); break;                // normal modifier (Shift) when held down
-    case DOUBLE_TAP:
-      tap_code(KC_ENT); break;                      // Enter when tapped twice
-  }
-}
-
-void ql_reset (qk_tap_dance_state_t *state, void *user_data) {
-  switch (ql_tap_state.state) {
-    case SINGLE_TAP: break;
-    //case SINGLE_HOLD: clear_oneshot_mods(); unregister_code(KC_LSFT); break;
-    case SINGLE_HOLD: unregister_code(KC_LSFT); break;
-    case DOUBLE_TAP: break;
-  }
-  ql_tap_state.state = 0;
 }
