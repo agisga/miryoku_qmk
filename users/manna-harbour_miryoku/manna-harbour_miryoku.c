@@ -158,14 +158,14 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 // thumb combos
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-const uint16_t PROGMEM thumbcombos_base_right[] = {LT(U_SYM, KC_ENT), LT(U_NUM, KC_BSPC), COMBO_END};
-const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_TAB), COMBO_END};
-const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_BSPC, COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), OSL(U_NUM), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
+const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_APP, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
 const uint16_t PROGMEM thumbcombos_media[] = {KC_MSTP, KC_MPLY, COMBO_END};
-const uint16_t PROGMEM thumbcombos_num[] = {KC_0, KC_MINS, COMBO_END};
+const uint16_t PROGMEM thumbcombos_num[] = {KC_UNDS, KC_MINS, COMBO_END};
   #if defined (MIRYOKU_LAYERS_FLIP)
-const uint16_t PROGMEM thumbcombos_sym[] = {KC_UNDS, KC_LPRN, COMBO_END};
+const uint16_t PROGMEM thumbcombos_sym[] = {KC_COLN, KC_SCLN, COMBO_END};
   #else
 const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
   #endif
@@ -203,8 +203,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LT(U_NAV,KC_SPC):
             return 190;
         case LT(U_MEDIA,KC_ESC):
-            return 190;
-        case LT(U_NUM,KC_QUOT):
             return 190;
         default:
             return TAPPING_TERM;
