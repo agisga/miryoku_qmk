@@ -20,7 +20,7 @@
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT 200  //145
+#define AUTO_SHIFT_TIMEOUT 150
 #define AUTO_SHIFT_NO_SETUP
 
 // Mouse key speed and acceleration.
@@ -35,9 +35,9 @@
 #undef MOUSEKEY_TIME_TO_MAX
 #define MOUSEKEY_TIME_TO_MAX    64
 
-// Thumb Combos
+// Thumb Combos, and other combos
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 8
-  #define COMBO_TERM 200
+  #define COMBO_COUNT 13
+  #define COMBO_TERM 30
   #define EXTRA_SHORT_COMBOS
 #endif

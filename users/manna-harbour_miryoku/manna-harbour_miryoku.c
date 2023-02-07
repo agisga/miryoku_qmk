@@ -155,9 +155,24 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL
 };
 
-// thumb combos
+// standard miryoku thumb combos, alexej's key-combos
+// combo names are defined according to the qwerty layout
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
+// alexej's key-combos
+enum combos {
+  AZ_MUTE,
+  SX_VOLDN,
+  DC_VOLUP,
+  FV_WSL,
+  GB_WSR,
+};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_QUOT), COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), ALGR_T(KC_X), COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
+const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
+const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
+// standard miryoku thumb combos
 const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), OSL(U_NUM), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_APP, COMBO_END};
@@ -171,6 +186,13 @@ const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
   #endif
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_TAB, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
+  // alexej's key-combos
+  [AZ_MUTE] = COMBO(az_combo, KC_MUTE),
+  [SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
+  [DC_VOLUP] = COMBO(dc_combo, KC_VOLU),
+  [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
+  [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
+  // standard miryoku thumb combos
   COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
   COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)),
   COMBO(thumbcombos_nav, KC_DEL),
