@@ -45,7 +45,6 @@ enum custom_keycodes {
   KC_LATEX_SQBRA,
   KC_LATEX_CURLYBRA,
   KC_QU,
-  KC_QUE,
   KC_COLONQ,
   KC_COLONWQ,
   KC_PARENQ,
@@ -337,12 +336,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_QU:
       if (record->event.pressed) {
           SEND_STRING("qu");
-      }
-      break;
-
-    case KC_QUE:
-      if (record->event.pressed) {
-          SEND_STRING("que");
       }
       break;
 

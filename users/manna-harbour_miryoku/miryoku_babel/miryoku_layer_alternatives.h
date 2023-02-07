@@ -344,7 +344,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-KC_Q,              TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   KC_Z,              KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
+KC_Q,              KC_Z,              KC_QU,             TD(U_TD_U_BASE),   KC_COLN,           KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           KC_SCLN,           KC_EQL,            KC_1,              KC_2,              KC_3,              KC_0,              \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             KC_BSLS,           KC_4,              KC_5,              KC_6,              KC_GRV,            \
 U_NP,              U_NP,              KC_HASH,           U_NA,              KC_ASTR,           KC_UNDS,           KC_MINS,           KC_DOT,            U_NP,              U_NP
@@ -383,7 +383,7 @@ U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_T
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
-KC_COLONQ,         KC_COLONWQ,        KC_QUE,            KC_QU,             U_NU,              U_NU,              U_NU,              KC_LATEX_PAREN,    KC_LATEX_SQBRA,    KC_LATEX_CURLYBRA, \
+KC_COLONQ,         KC_COLONWQ,        U_NU,              U_NU,              U_NU,              U_NU,              U_NU,              KC_LATEX_PAREN,    KC_LATEX_SQBRA,    KC_LATEX_CURLYBRA, \
 RALT(KC_Q),        RALT(KC_P),        RALT(KC_S),        RALT(KC_Y),        U_NU,              U_NU,              KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA,\
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NU,              U_NU,              U_NU,              KC_ELLIPSIS,       KC_PARENQ,         \
 U_NP,              U_NP,              DYN_REC_STOP,      DYN_MACRO_PLAY2,   DYN_REC_START2,    DYN_REC_START1,    DYN_MACRO_PLAY1,   DYN_REC_STOP,      U_NP,              U_NP
