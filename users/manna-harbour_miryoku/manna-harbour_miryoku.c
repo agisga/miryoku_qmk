@@ -41,6 +41,7 @@ enum custom_keycodes {
   KC_AUTOCLOS_SQBRA,
   KC_AUTOCLOS_CURLYBRA,
   KC_AUTOCLOS_QUOTE,
+  KC_AUTOCLOS_ANGLEBRA,
   KC_LATEX_PAREN,
   KC_LATEX_SQBRA,
   KC_LATEX_CURLYBRA,
@@ -48,6 +49,8 @@ enum custom_keycodes {
   KC_COLONQ,
   KC_COLONWQ,
   KC_PARENQ,
+  KC_DOTSPC,
+  KC_COMMASPC,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -219,11 +222,17 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 190;
         case LSFT_T(KC_J):
             return 190;
+        case LGUI_T(KC_A):
+            return 300;
+        case LGUI_T(KC_O):
+            return 300;
         case LT(U_MOUSE,KC_SPC):
             return 190;
         case LT(U_NAV,KC_SPC):
             return 190;
         case LT(U_MEDIA,KC_ESC):
+            return 190;
+        case LT(U_FUN,KC_DEL):
             return 190;
         default:
             return TAPPING_TERM;
@@ -305,6 +314,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    case KC_AUTOCLOS_ANGLEBRA:
+      if (record->event.pressed) {
+          SEND_STRING("<>" SS_TAP(X_LEFT));
+      }
+      break;
+
     case KC_LATEX_PAREN:
       if (record->event.pressed) {
           SEND_STRING("\\left(\\right)" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
@@ -344,6 +359,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_PARENQ:
       if (record->event.pressed) {
           SEND_STRING("(?)");
+      }
+      break;
+
+    case KC_DOTSPC:
+      if (record->event.pressed) {
+          SEND_STRING(". ");
+      }
+      break;
+
+    case KC_COMMASPC:
+      if (record->event.pressed) {
+          SEND_STRING(", ");
       }
       break;
   }
