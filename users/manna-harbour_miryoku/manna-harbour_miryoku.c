@@ -364,7 +364,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case KC_DOTSPC:
       if (record->event.pressed) {
-          SEND_STRING(". ");
+          tap_code(KC_DOT);
+          tap_code(KC_SPC);
+          set_oneshot_mods(MOD_BIT(KC_LSFT)); break;     // emulate OSM for Shift
       }
       break;
 
