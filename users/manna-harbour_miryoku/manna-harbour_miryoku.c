@@ -234,7 +234,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LT(U_MOUSE,KC_SPC):
             return 190;
         case LT(U_NAV,KC_SPC):
-            return 190;
+            return 250;
         case LT(U_MEDIA,KC_ESC):
             return 190;
         case LT(U_FUN,KC_DEL):
