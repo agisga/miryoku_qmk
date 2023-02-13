@@ -37,6 +37,10 @@ enum custom_keycodes {
   AT_SPECIAL,
   AST_SPECIAL,
   KC_ELLIPSIS,
+  KC_LEQ,
+  KC_GEQ,
+  KC_LEFTARR,
+  KC_RIGHTARR,
   KC_AUTOCLOS_PAREN,
   KC_AUTOCLOS_SQBRA,
   KC_AUTOCLOS_CURLYBRA,
@@ -47,8 +51,8 @@ enum custom_keycodes {
   KC_LATEX_CURLYBRA,
   KC_QU,
   KC_COLONQ,
+  KC_COLONQEX,
   KC_COLONWQ,
-  KC_PARENQ,
   KC_DOTSPC,
   KC_COMMASPC,
 };
@@ -286,7 +290,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case KC_ELLIPSIS:
       if (record->event.pressed) {
-          SEND_STRING("(...)");
+          SEND_STRING("...");
+      }
+      break;
+
+    case KC_LEQ:
+      if (record->event.pressed) {
+          SEND_STRING("<=");
+      }
+      break;
+
+    case KC_GEQ:
+      if (record->event.pressed) {
+          SEND_STRING(">=");
+      }
+      break;
+
+    case KC_LEFTARR:
+      if (record->event.pressed) {
+          SEND_STRING("<-");
+      }
+      break;
+
+    case KC_RIGHTARR:
+      if (record->event.pressed) {
+          SEND_STRING("->");
       }
       break;
 
@@ -350,15 +378,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_COLONWQ:
+    case KC_COLONQEX:
       if (record->event.pressed) {
-          SEND_STRING(":wq");
+          SEND_STRING(":q!");
       }
       break;
 
-    case KC_PARENQ:
+    case KC_COLONWQ:
       if (record->event.pressed) {
-          SEND_STRING("(?)");
+          SEND_STRING(":wq");
       }
       break;
 
