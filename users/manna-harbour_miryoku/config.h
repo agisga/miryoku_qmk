@@ -9,7 +9,7 @@
 
 // default but used in macros
 #undef TAPPING_TERM
-#define TAPPING_TERM 300
+#define TAPPING_TERM 250
 #define TAPPING_TERM_PER_KEY  /* Use per key tapping term */
 
 // Prevent normal rollover on alphas from accidentally triggering mods.
@@ -20,7 +20,7 @@
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT 145
+#define AUTO_SHIFT_TIMEOUT 150
 #define AUTO_SHIFT_NO_SETUP
 
 // Mouse key speed and acceleration.
@@ -36,12 +36,8 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 // Thumb Combos, and other combos
-#define COMBO_ONLY_FROM_LAYER 0  // the thumb combos defined for sublayers will not work if this is enabled, but all other combos will work on alternate alpha layers
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 31
-#else
-  #define COMBO_COUNT 23
+  #define COMBO_COUNT 13
+  #define COMBO_TERM 30
+  #define EXTRA_SHORT_COMBOS
 #endif
-#define COMBO_TERM 30
-#define EXTRA_SHORT_COMBOS
-
