@@ -218,14 +218,6 @@ combo_t key_combos[COMBO_COUNT] = {
 // shorter tapping terms for thumb keys and shift
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LSFT_T(KC_T):
-            return 190;
-        case LSFT_T(KC_N):
-            return 190;
-        case LSFT_T(KC_F):
-            return 190;
-        case LSFT_T(KC_J):
-            return 190;
         case LGUI_T(KC_A):
             return 300;
         case LGUI_T(KC_O):
