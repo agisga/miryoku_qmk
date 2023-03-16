@@ -202,7 +202,7 @@ enum combos {
   FV_WSL,
   GB_WSR,
 };
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_QUOT), COMBO_END};
+const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
 const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
 const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), ALGR_T(KC_C), COMBO_END};
 const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), LT(U_SYM,KC_V), COMBO_END};
