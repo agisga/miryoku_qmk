@@ -228,8 +228,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
   [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
   // standard miryoku thumb combos
-  COMBO(thumbcombos_base_right, KC_REPEAT),
-  COMBO(thumbcombos_base_left, KC_AT_SPECIAL),
+  COMBO(thumbcombos_base_right, KC_AT_SPECIAL),
+  COMBO(thumbcombos_base_left, KC_REPEAT),
   COMBO(thumbcombos_nav, KC_DEL),
   COMBO(thumbcombos_mouse, KC_BTN3),
   COMBO(thumbcombos_media, KC_MUTE),
