@@ -34,8 +34,8 @@ void ql_reset (qk_tap_dance_state_t *state, void *user_data);
 enum custom_keycodes {
   ONENOTE_ASDF = SAFE_RANGE,
   ONENOTE_QWER,
-  AT_SPECIAL,
-  AST_SPECIAL,
+  KC_AT_SPECIAL,
+  KC_AST_SPECIAL,
   KC_ELLIPSIS,
   KC_LEQ,
   KC_GEQ,
@@ -68,6 +68,7 @@ uint16_t alt_tab_timer = 0;        // we will be using them soon.
 
 enum {
     OSM_LSFT_ENT, // custom tap dance
+    OSL_U_NUM_ESC, // custom tap dance
     U_TD_BOOT,
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
 MIRYOKU_LAYER_LIST
@@ -108,6 +109,10 @@ static tap ql_tap_state = {
   .is_press_action = true,
   .state = 0
 };
+static tap ne_tap_state = {
+  .is_press_action = true,
+  .state = 0
+};
 
 //Functions that control what our tap dance key does
 // cont. tap dance for OSM shift and Enter
@@ -136,8 +141,31 @@ void ql_reset (qk_tap_dance_state_t *state, void *user_data) {
   ql_tap_state.state = 0;
 }
 
+// tap dance for OSL NUM and Esc
+void ne_finished (qk_tap_dance_state_t *state, void *user_data) {
+  ne_tap_state.state = cur_dance(state);
+  switch (ne_tap_state.state) {
+    case SINGLE_TAP:
+      set_oneshot_layer(U_NUM, ONESHOT_START); break;     // OSL for NUM when tapped once
+    case SINGLE_HOLD:
+      layer_on(U_NUM); break;                       // layer on when held down
+    case DOUBLE_TAP:
+      tap_code(KC_ESC); break;                      // Esc when tapped twice
+  }
+}
+
+void ne_reset (qk_tap_dance_state_t *state, void *user_data) {
+  switch (ne_tap_state.state) {
+    case SINGLE_TAP: clear_oneshot_layer_state(ONESHOT_PRESSED); break;
+    case SINGLE_HOLD: clear_oneshot_layer_state(ONESHOT_PRESSED); layer_off(U_NUM); break;
+    case DOUBLE_TAP: break;
+  }
+  ne_tap_state.state = 0;
+}
+
 qk_tap_dance_action_t tap_dance_actions[] = {
     [OSM_LSFT_ENT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset),  // Alexej's custom
+    [OSL_U_NUM_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ne_finished, ne_reset),  // Alexej's custom
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
 MIRYOKU_LAYER_LIST
@@ -175,12 +203,12 @@ enum combos {
   GB_WSR,
 };
 const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_QUOT), COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), ALGR_T(KC_X), COMBO_END};
-const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
-const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
+const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), ALGR_T(KC_C), COMBO_END};
+const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), LT(U_SYM,KC_V), COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
 // standard miryoku thumb combos
-const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), OSL(U_NUM), COMBO_END};
+const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), TD(OSL_U_NUM_ESC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_nav[] = {KC_ENT, KC_APP, COMBO_END};
 const uint16_t PROGMEM thumbcombos_mouse[] = {KC_BTN2, KC_BTN1, COMBO_END};
@@ -200,8 +228,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
   [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
   // standard miryoku thumb combos
-  COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
-  COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)),
+  COMBO(thumbcombos_base_right, KC_REPEAT),
+  COMBO(thumbcombos_base_left, KC_AT_SPECIAL),
   COMBO(thumbcombos_nav, KC_DEL),
   COMBO(thumbcombos_mouse, KC_BTN3),
   COMBO(thumbcombos_media, KC_MUTE),
@@ -224,7 +252,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LGUI_T(KC_O):
             return 300;
         case LT(U_NAV,KC_SPC):
-            return 250;
+            return 190;
         default:
             return TAPPING_TERM;
     }
@@ -312,7 +340,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case AT_SPECIAL:
+    case KC_AT_SPECIAL:
         if (record->event.pressed) {
             alt_tab_timer = timer_read();
             if(!is_alt_tab_active) {
@@ -325,7 +353,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
-    case AST_SPECIAL:
+    case KC_AST_SPECIAL:
         if (record->event.pressed) {
             alt_tab_timer = timer_read();
             if(!is_alt_tab_active) {
