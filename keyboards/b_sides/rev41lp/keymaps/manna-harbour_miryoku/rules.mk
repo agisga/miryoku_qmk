@@ -1,5 +1,6 @@
 # Copyright 2021 Manna Harbour
 # https://github.com/manna-harbour/miryoku
+MIRYOKU_KLUDGE_THUMBCOMBOS=yes
 
 # for saving firmware size (https://github.com/qmk/qmk_firmware/blob/master/docs/squeezing_avr.md):
 RGBLIGHT_ENABLE = no
