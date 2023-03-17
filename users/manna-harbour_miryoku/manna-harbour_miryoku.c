@@ -328,18 +328,6 @@ void matrix_scan_user(void) {     // The very important timer.
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
-    case ONENOTE_ASDF:
-      if (record->event.pressed) {
-          SEND_STRING(SS_LWIN(SS_LSFT("n")) SS_DELAY(1000) SS_LCTL("e") SS_DELAY(100) "asdf" SS_DELAY(400) SS_TAP(X_ENT) SS_DELAY(100) SS_LCTL(SS_TAP(X_END)));
-      }
-      break;
-
-    case ONENOTE_QWER:
-      if (record->event.pressed) {
-          SEND_STRING(SS_LWIN(SS_LSFT("n")) SS_DELAY(1000) SS_LCTL("e") SS_DELAY(100) "qwer" SS_DELAY(400) SS_TAP(X_ENT) SS_DELAY(100) SS_LCTL(SS_TAP(X_END)));
-      }
-      break;
-
     case KC_AT_SPECIAL:
         if (record->event.pressed) {
             alt_tab_timer = timer_read();
@@ -371,18 +359,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_ELLIPSIS:
       if (record->event.pressed) {
           SEND_STRING("...");
-      }
-      break;
-
-    case KC_LEQ:
-      if (record->event.pressed) {
-          SEND_STRING("<=");
-      }
-      break;
-
-    case KC_GEQ:
-      if (record->event.pressed) {
-          SEND_STRING(">=");
       }
       break;
 
@@ -425,30 +401,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_AUTOCLOS_ANGLEBRA:
       if (record->event.pressed) {
           SEND_STRING("<>" SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_PAREN:
-      if (record->event.pressed) {
-          SEND_STRING("\\left(\\right)" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_SQBRA:
-      if (record->event.pressed) {
-          SEND_STRING("\\left[\\right]" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_CURLYBRA:
-      if (record->event.pressed) {
-          SEND_STRING("\\left\\{\\right\\}" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_QU:
-      if (record->event.pressed) {
-          SEND_STRING("qu");
       }
       break;
 
