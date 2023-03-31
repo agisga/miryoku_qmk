@@ -49,13 +49,13 @@ enum custom_keycodes {
   KC_LATEX_PAREN,
   KC_LATEX_SQBRA,
   KC_LATEX_CURLYBRA,
-  KC_QU,
+  KC_COLONW,
   KC_COLONQ,
   KC_COLONQEX,
   KC_COLONWQ,
   KC_REPEAT,
   KC_DOTSPC,
-  KC_COMMASPC,
+  KC_FIFTEENSTARS,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -434,9 +434,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_QU:
+    case KC_COLONW:
       if (record->event.pressed) {
-          SEND_STRING("qu");
+          SEND_STRING(":w");
       }
       break;
 
@@ -466,9 +466,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_COMMASPC:
+    case KC_FIFTEENSTARS:
       if (record->event.pressed) {
-          SEND_STRING(", ");
+          SEND_STRING("*************** ");
       }
       break;
   }
