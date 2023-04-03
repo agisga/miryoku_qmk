@@ -53,9 +53,10 @@ enum custom_keycodes {
   KC_COLONQ,
   KC_COLONQEX,
   KC_COLONWQ,
+  KC_COLONW,
   KC_REPEAT,
   KC_DOTSPC,
-  KC_COMMASPC,
+  KC_FIFTEENSTARS,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -228,8 +229,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
   [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
   // standard miryoku thumb combos
-  COMBO(thumbcombos_base_right, KC_REPEAT),
-  COMBO(thumbcombos_base_left, KC_AT_SPECIAL),
+  COMBO(thumbcombos_base_right, KC_AT_SPECIAL),
+  COMBO(thumbcombos_base_left, KC_REPEAT),
   COMBO(thumbcombos_nav, KC_DEL),
   COMBO(thumbcombos_mouse, KC_BTN3),
   COMBO(thumbcombos_media, KC_MUTE),
@@ -328,18 +329,6 @@ void matrix_scan_user(void) {     // The very important timer.
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch(keycode) {
-    case ONENOTE_ASDF:
-      if (record->event.pressed) {
-          SEND_STRING(SS_LWIN(SS_LSFT("n")) SS_DELAY(1000) SS_LCTL("e") SS_DELAY(100) "asdf" SS_DELAY(400) SS_TAP(X_ENT) SS_DELAY(100) SS_LCTL(SS_TAP(X_END)));
-      }
-      break;
-
-    case ONENOTE_QWER:
-      if (record->event.pressed) {
-          SEND_STRING(SS_LWIN(SS_LSFT("n")) SS_DELAY(1000) SS_LCTL("e") SS_DELAY(100) "qwer" SS_DELAY(400) SS_TAP(X_ENT) SS_DELAY(100) SS_LCTL(SS_TAP(X_END)));
-      }
-      break;
-
     case KC_AT_SPECIAL:
         if (record->event.pressed) {
             alt_tab_timer = timer_read();
@@ -371,18 +360,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_ELLIPSIS:
       if (record->event.pressed) {
           SEND_STRING("...");
-      }
-      break;
-
-    case KC_LEQ:
-      if (record->event.pressed) {
-          SEND_STRING("<=");
-      }
-      break;
-
-    case KC_GEQ:
-      if (record->event.pressed) {
-          SEND_STRING(">=");
       }
       break;
 
@@ -428,30 +405,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_LATEX_PAREN:
-      if (record->event.pressed) {
-          SEND_STRING("\\left(\\right)" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_SQBRA:
-      if (record->event.pressed) {
-          SEND_STRING("\\left[\\right]" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_CURLYBRA:
-      if (record->event.pressed) {
-          SEND_STRING("\\left\\{\\right\\}" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_QU:
-      if (record->event.pressed) {
-          SEND_STRING("qu");
-      }
-      break;
-
     case KC_COLONQ:
       if (record->event.pressed) {
           SEND_STRING(":q");
@@ -470,6 +423,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
+    case KC_COLONW:
+      if (record->event.pressed) {
+          SEND_STRING(":w");
+      }
+      break;
+
     case KC_DOTSPC:
       if (record->event.pressed) {
           tap_code(KC_DOT);
@@ -478,9 +437,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_COMMASPC:
+    case KC_FIFTEENSTARS:
       if (record->event.pressed) {
-          SEND_STRING(", ");
+          SEND_STRING("*************** ");
       }
       break;
   }
