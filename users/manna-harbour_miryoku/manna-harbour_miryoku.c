@@ -49,7 +49,6 @@ enum custom_keycodes {
   KC_LATEX_PAREN,
   KC_LATEX_SQBRA,
   KC_LATEX_CURLYBRA,
-  KC_COLONW,
   KC_COLONQ,
   KC_COLONQEX,
   KC_COLONWQ,
