@@ -53,6 +53,7 @@ enum custom_keycodes {
   KC_COLONQ,
   KC_COLONQEX,
   KC_COLONWQ,
+  KC_COLONW,
   KC_REPEAT,
   KC_DOTSPC,
   KC_FIFTEENSTARS,
@@ -228,8 +229,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
   [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
   // standard miryoku thumb combos
-  COMBO(thumbcombos_base_right, KC_REPEAT),
-  COMBO(thumbcombos_base_left, KC_AT_SPECIAL),
+  COMBO(thumbcombos_base_right, KC_AT_SPECIAL),
+  COMBO(thumbcombos_base_left, KC_REPEAT),
   COMBO(thumbcombos_nav, KC_DEL),
   COMBO(thumbcombos_mouse, KC_BTN3),
   COMBO(thumbcombos_media, KC_MUTE),
@@ -362,18 +363,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_LEQ:
-      if (record->event.pressed) {
-          SEND_STRING("<=");
-      }
-      break;
-
-    case KC_GEQ:
-      if (record->event.pressed) {
-          SEND_STRING(">=");
-      }
-      break;
-
     case KC_LEFTARR:
       if (record->event.pressed) {
           SEND_STRING("<-");
@@ -416,30 +405,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       break;
 
-    case KC_LATEX_PAREN:
-      if (record->event.pressed) {
-          SEND_STRING("\\left(\\right)" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_SQBRA:
-      if (record->event.pressed) {
-          SEND_STRING("\\left[\\right]" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_LATEX_CURLYBRA:
-      if (record->event.pressed) {
-          SEND_STRING("\\left\\{\\right\\}" SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT) SS_TAP(X_LEFT));
-      }
-      break;
-
-    case KC_COLONW:
-      if (record->event.pressed) {
-          SEND_STRING(":w");
-      }
-      break;
-
     case KC_COLONQ:
       if (record->event.pressed) {
           SEND_STRING(":q");
@@ -455,6 +420,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_COLONWQ:
       if (record->event.pressed) {
           SEND_STRING(":wq");
+      }
+      break;
+
+    case KC_COLONW:
+      if (record->event.pressed) {
+          SEND_STRING(":w");
       }
       break;
 
