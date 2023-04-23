@@ -383,7 +383,7 @@ U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_T
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
-KC_COLONQ,         KC_COLONW,         KC_COLONWQ,        KC_COLONQEX,       KC_COLN,           U_NU,              U_NU,              KC_FIFTEENSTARS,   KC_LPRN,           KC_RPRN,           \
+KC_COLONQ,         KC_COLONW,         KC_COLONWQ,        KC_COLONQEX,       KC_COLN,           U_NU,              KC_TODO,           KC_FIFTEENSTARS,   KC_LPRN,           KC_RPRN,           \
 RALT(KC_Q),        RALT(KC_P),        RALT(KC_S),        RALT(KC_Y),        KC_SCLN,           KC_AUTOCLOS_ANGLEBRA,KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_CURLYBRA,\
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             KC_LT,             KC_LEFTARR,        KC_ELLIPSIS,       KC_RIGHTARR,       KC_GT,             \
 U_NP,              U_NP,              DYN_REC_STOP,      DYN_MACRO_PLAY2,   DYN_REC_START2,    DYN_REC_START1,    DYN_MACRO_PLAY1,   DYN_REC_STOP,      U_NP,              U_NP
