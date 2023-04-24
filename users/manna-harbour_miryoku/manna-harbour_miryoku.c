@@ -206,8 +206,8 @@ enum combos {
 };
 const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
 const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
-const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), ALGR_T(KC_C), COMBO_END};
-const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), LT(U_SYM,KC_V), COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
+const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
 // standard miryoku thumb combos
 const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), TD(OSL_U_NUM_ESC), COMBO_END};
