@@ -56,6 +56,7 @@ enum custom_keycodes {
   KC_REPEAT,
   KC_DOTSPC,
   KC_FIFTEENSTARS,
+  KC_TODO,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -204,8 +205,8 @@ enum combos {
 };
 const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
 const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
-const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), ALGR_T(KC_C), COMBO_END};
-const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), LT(U_SYM,KC_V), COMBO_END};
+const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
+const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
 const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
 // standard miryoku thumb combos
 const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), TD(OSL_U_NUM_ESC), COMBO_END};
@@ -439,6 +440,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_FIFTEENSTARS:
       if (record->event.pressed) {
           SEND_STRING("*************** ");
+      }
+      break;
+
+    case KC_TODO:
+      if (record->event.pressed) {
+          SEND_STRING("TODO ");
       }
       break;
   }
