@@ -386,4 +386,4 @@ U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_T
 KC_COLONQ,         KC_COLONW,         KC_COLONWQ,        KC_COLONQEX,       KC_COLN,           U_NU,              U_NU,              RALT(KC_Y),        KC_LPRN,           KC_RPRN,           \
 RALT(KC_Q),        KC_AUTOCLOS_CURLYBRA,RALT(KC_S),        KC_AUTOCLOS_SQBRA, KC_AUTOCLOS_ANGLEBRA,KC_TODO,           KC_AUTOCLOS_QUOTE, KC_AUTOCLOS_PAREN, KC_FIFTEENSTARS,   RALT(KC_P),        \
 U_NU,              KC_VOLD,           KC_VOLU,           U_NU,              U_NU,              KC_LT,             KC_LEFTARR,        KC_ELLIPSIS,       KC_RIGHTARR,       KC_GT,             \
-U_NP,              U_NP,              DYN_REC_STOP,      DYN_MACRO_PLAY2,   DYN_REC_START2,    DYN_REC_START1,    DYN_MACRO_PLAY1,   DYN_REC_STOP,      U_NP,              U_NP
+U_NP,              U_NP,              QK_DYNAMIC_MACRO_RECORD_STOP,QK_DYNAMIC_MACRO_PLAY_2,QK_DYNAMIC_MACRO_RECORD_START_2,QK_DYNAMIC_MACRO_RECORD_START_1,QK_DYNAMIC_MACRO_PLAY_1,QK_DYNAMIC_MACRO_RECORD_STOP,U_NP,              U_NP
