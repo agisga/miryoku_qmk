@@ -12,7 +12,7 @@ make clean b_sides/rev41lp:manna-harbour_miryoku:dfu MIRYOKU_LAYERS=FLIP MIRYOKU
 #+end_src
 
 - (For outdated QMK versions) May need to add: `AVR_CFLAGS="-Wno-array-bounds"` (see [[https://github.com/qmk/qmk_firmware/issues/17064]]).
-  
+
 ** Corne / crkbd
 *** Elite-C, WS-C
 - May need to disable rgb matrix in =rules.mk= if there are space issues.
@@ -21,7 +21,7 @@ make clean crkbd:manna-harbour_miryoku:dfu-split-left MIRYOKU_LAYERS=FLIP MIRYOK
 make clean crkbd:manna-harbour_miryoku:dfu-split-right MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
 #+end_src
 *** crkbd with rp2040 controllers (boardsource blok, specifically)
-- Maybe need to run =make git-submodule=; but actually that seems to set submodules to commits that are too old for this (as of <2022-12-04 Sun>); So, I ended up running =git submodule update --remote=, and it worked fine. 
+- Maybe need to run =make git-submodule=; but actually that seems to set submodules to commits that are too old for this (as of <2022-12-04 Sun>); So, I ended up running =git submodule update --remote=, and it worked fine.
 - To put BLOK in bootloader mode, hold the tiny button under the "X" on the boards body while plugging the USB cable in. Double tapping the reset button also works. Double tapping the programmed reset key from the miryoku keymap also works.
 - Run (note the `CONVERT_TO=blok`):
     #+begin_src
@@ -46,7 +46,7 @@ make clean crkbd:manna-harbour_miryoku:dfu-split-right MIRYOKU_LAYERS=FLIP MIRYO
 - The Miryoku QMK development branch readme is at https://github.com/manna-harbour/miryoku_qmk/tree/miryoku/users/manna-harbour_miryoku
 
 
-** 
+**
 
 [[https://github.com/manna-harbour][https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/manna-harbour-boa-32.png]]
- 
+
