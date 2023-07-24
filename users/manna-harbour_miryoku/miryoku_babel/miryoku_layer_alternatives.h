@@ -344,7 +344,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-C(G(KC_LEFT)),     C(G(KC_RIGHT)),    KC_TAB,            KC_DEL,            KC_MUTE E,         KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
+C(G(KC_LEFT)),     C(G(KC_RIGHT)),    KC_TAB,            KC_DEL,            KC_MUTE,         KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT_T(QUES),   KC_SLSH,           KC_EQL,            KC_4,              KC_5,              KC_6,              KC_SCLN,           \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             KC_BSLS,           KC_1,              KC_2,              KC_3,              KC_GRV,            \
 U_NP,              U_NP,              TD(U_TD_U_BASE),   U_NA,              KC_ASTR,           KC_MINS,           KC_0,              KC_DOT,            U_NP,              U_NP
