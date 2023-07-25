@@ -16,7 +16,7 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
+#define QUICK_TAP_TERM 0
 
 // Auto Shift
 #define NO_AUTO_SHIFT_ALPHA
@@ -37,7 +37,7 @@
 
 // Thumb Combos, and other combos
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
-  #define COMBO_COUNT 13
+  #define COMBO_COUNT 8 //13
   #define COMBO_TERM 30
   #define EXTRA_SHORT_COMBOS
 #endif

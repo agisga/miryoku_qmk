@@ -24,9 +24,9 @@ enum {
 };
 
 //Declare the functions to be used with your tap dance key(s)
-int cur_dance (qk_tap_dance_state_t *state);
-void ql_finished (qk_tap_dance_state_t *state, void *user_data);
-void ql_reset (qk_tap_dance_state_t *state, void *user_data);
+int cur_dance (tap_dance_state_t *state);
+void ql_finished (tap_dance_state_t *state, void *user_data);
+void ql_reset (tap_dance_state_t *state, void *user_data);
 //---
 
 
@@ -77,14 +77,14 @@ MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 };
 
-void u_td_fn_boot(qk_tap_dance_state_t *state, void *user_data) { \
+void u_td_fn_boot(tap_dance_state_t *state, void *user_data) { \
   if (state->count == 2) {
     reset_keyboard();
   }
 }
 
 #define MIRYOKU_X(LAYER, STRING) \
-void u_td_fn_U_##LAYER(qk_tap_dance_state_t *state, void *user_data) { \
+void u_td_fn_U_##LAYER(tap_dance_state_t *state, void *user_data) { \
   if (state->count == 2) { \
     default_layer_set((layer_state_t)1 << U_##LAYER); \
   } \
@@ -93,7 +93,7 @@ MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 
 //Determine the current tap dance state
-int cur_dance (qk_tap_dance_state_t *state) {
+int cur_dance (tap_dance_state_t *state) {
   if (state->count == 1) {
     if (!state->pressed) {
       return SINGLE_TAP;
@@ -120,7 +120,7 @@ static tap ne_tap_state = {
 // cont. tap dance for OSM shift and Enter
 // based on https://github.com/samhocevar-forks/qmk-firmware/blob/master/docs/feature_tap_dance.md#example-6-using-tap-dance-for-momentary-layer-switch-and-layer-toggle-keys
 // and https://www.reddit.com/r/olkb/comments/mxcm9p/tap_dance_to_mimic_two_oneshot_modifiers/
-void ql_finished (qk_tap_dance_state_t *state, void *user_data) {
+void ql_finished (tap_dance_state_t *state, void *user_data) {
   ql_tap_state.state = cur_dance(state);
   switch (ql_tap_state.state) {
     case SINGLE_TAP:
@@ -133,7 +133,7 @@ void ql_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void ql_reset (qk_tap_dance_state_t *state, void *user_data) {
+void ql_reset (tap_dance_state_t *state, void *user_data) {
   switch (ql_tap_state.state) {
     case SINGLE_TAP: break;
     case SINGLE_HOLD: clear_oneshot_mods(); unregister_code(KC_LSFT); break;
@@ -144,7 +144,7 @@ void ql_reset (qk_tap_dance_state_t *state, void *user_data) {
 }
 
 // tap dance for OSL NUM and Esc
-void ne_finished (qk_tap_dance_state_t *state, void *user_data) {
+void ne_finished (tap_dance_state_t *state, void *user_data) {
   ne_tap_state.state = cur_dance(state);
   switch (ne_tap_state.state) {
     case SINGLE_TAP:
@@ -156,7 +156,7 @@ void ne_finished (qk_tap_dance_state_t *state, void *user_data) {
   }
 }
 
-void ne_reset (qk_tap_dance_state_t *state, void *user_data) {
+void ne_reset (tap_dance_state_t *state, void *user_data) {
   switch (ne_tap_state.state) {
     case SINGLE_TAP: clear_oneshot_layer_state(ONESHOT_PRESSED); break;
     case SINGLE_HOLD: clear_oneshot_layer_state(ONESHOT_PRESSED); layer_off(U_NUM); break;
@@ -165,7 +165,7 @@ void ne_reset (qk_tap_dance_state_t *state, void *user_data) {
   ne_tap_state.state = 0;
 }
 
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
     [OSM_LSFT_ENT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset),  // Alexej's custom
     [OSL_U_NUM_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ne_finished, ne_reset),  // Alexej's custom
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
@@ -197,18 +197,18 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
 // alexej's key-combos
-enum combos {
-  AZ_MUTE,
-  SX_VOLDN,
-  DC_VOLUP,
-  FV_WSL,
-  GB_WSR,
-};
-const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
-const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
-const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
-const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
-const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
+//enum combos {
+//  AZ_MUTE,
+//  SX_VOLDN,
+//  DC_VOLUP,
+//  FV_WSL,
+//  GB_WSR,
+//};
+//const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
+//const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
+//const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
+//const uint16_t PROGMEM fv_combo[] = {LSFT_T(KC_T), KC_V, COMBO_END};
+//const uint16_t PROGMEM gb_combo[] = {KC_D, KC_B, COMBO_END};
 // standard miryoku thumb combos
 const uint16_t PROGMEM thumbcombos_base_right[] = {TD(OSM_LSFT_ENT), TD(OSL_U_NUM_ESC), COMBO_END};
 const uint16_t PROGMEM thumbcombos_base_left[] = {LT(U_NAV, KC_SPC), LT(U_MOUSE, KC_SPC), COMBO_END};
@@ -223,12 +223,12 @@ const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
   #endif
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_TAB, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-  // alexej's key-combos
-  [AZ_MUTE] = COMBO(az_combo, KC_MUTE),
-  [SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
-  [DC_VOLUP] = COMBO(dc_combo, KC_VOLU),
-  [FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
-  [GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
+  //// alexej's key-combos
+  //[AZ_MUTE] = COMBO(az_combo, KC_MUTE),
+  //[SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
+  //[DC_VOLUP] = COMBO(dc_combo, KC_VOLU),
+  //[FV_WSL] = COMBO(fv_combo, LCTL(LGUI(KC_LEFT))),
+  //[GB_WSR] = COMBO(gb_combo, LCTL(LGUI(KC_RIGHT))),
   // standard miryoku thumb combos
   COMBO(thumbcombos_base_right, KC_AT_SPECIAL),
   COMBO(thumbcombos_base_left, KC_REPEAT),
