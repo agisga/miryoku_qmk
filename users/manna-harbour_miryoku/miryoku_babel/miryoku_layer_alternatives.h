@@ -347,7 +347,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 C(G(KC_LEFT)),     C(G(KC_RIGHT)),    KC_TAB,            KC_DEL,            U_NU,              KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           LSFT_T(KC_SLSH),   KC_QUES,           KC_EQL,            KC_4,              KC_5,              KC_6,              KC_MINS,           \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             KC_BSLS,           KC_1,              KC_2,              KC_3,              KC_GRV,            \
-U_NP,              U_NP,              TD(U_TD_U_BASE),   U_NA,              KC_MINS,           KC_UNDS,           KC_0,              KC_DOT,            U_NP,              U_NP
+U_NP,              U_NP,              TD(U_TD_U_BASE),   U_NA,              KC_UNDS,           KC_UNDS,           KC_0,              KC_DOT,            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NUM \
 KC_LBRC,           KC_7,              KC_8,              KC_9,              KC_RBRC,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
