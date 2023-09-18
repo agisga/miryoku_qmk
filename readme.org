@@ -19,7 +19,7 @@ git checkout miryoku
 
 ** Corne / crkbd
 *** Elite-C, WS-C
-- May need to disable rgb matrix in =rules.mk= if there are space issues.
+- Flash this crkbd from the plexus80 branch where rgb matrix is disabled for crkbd in =rules.mk=.
 #+begin_src
 make clean crkbd:manna-harbour_miryoku:dfu-split-left MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
 make clean crkbd:manna-harbour_miryoku:dfu-split-right MIRYOKU_LAYERS=FLIP MIRYOKU_NAV=INVERTEDT MIRYOKU_CLIPBOARD=WIN MIRYOKU_ALPHAS=COLEMAK MIRYOKU_EXTRA=QWERTY MIRYOKU_TAP=COLEMAK
