@@ -22,8 +22,8 @@ U_NP,              U_NP,              KC_AT_SPECIAL,     TD(OSL_U_NUM_ESC), TD(O
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
 KC_Q,              KC_W,              KC_F,              KC_P,              KC_G,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
-LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_D,              KC_H,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),      \
-LT(U_BUTTON,KC_Z), LT(U_FUN,KC_X),    ALGR_T(KC_C),      LT(U_SYM,KC_V),    KC_B,              KC_K,              KC_M,              KC_BSPC,           LT(U_MEDIA,KC_DOT),LT(U_BUTTON,KC_COMM),\
+LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_D,              KC_M,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),      \
+LT(U_BUTTON,KC_Z), LT(U_FUN,KC_X),    ALGR_T(KC_C),      LT(U_SYM,KC_V),    KC_B,              KC_K,              KC_H,              KC_BSPC,           LT(U_MEDIA,KC_DOT),LT(U_BUTTON,KC_COMM),\
 U_NP,              U_NP,              KC_AT_SPECIAL,     TD(OSL_U_NUM_ESC), TD(OSM_LSFT_ENT),  LT(U_MOUSE,KC_SPC),LT(U_NAV,KC_SPC),  KC_REPEAT,         U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_FLIP \
@@ -82,8 +82,8 @@ U_NP,              U_NP,              LT(U_MEDIA,KC_ESC),LT(U_NAV,KC_SPC),  LT(U
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
 KC_Q,              KC_W,              KC_F,              KC_P,              KC_G,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
-LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_D,              KC_H,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),      \
-LT(U_BUTTON,KC_Z), ALGR_T(KC_X),      KC_C,              KC_V,              KC_B,              KC_K,              KC_M,              KC_BSPC,           ALGR_T(KC_DOT),    LT(U_BUTTON,KC_COMM),\
+LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_D,              KC_M,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),      \
+LT(U_BUTTON,KC_Z), ALGR_T(KC_X),      KC_C,              KC_V,              KC_B,              KC_K,              KC_H,              KC_BSPC,           ALGR_T(KC_DOT),    LT(U_BUTTON,KC_COMM),\
 U_NP,              U_NP,              LT(U_MEDIA,KC_ESC),LT(U_NAV,KC_SPC),  LT(U_MOUSE,KC_TAB),LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC), LT(U_FUN,KC_DEL),  U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH \
@@ -143,8 +143,8 @@ U_NP,              U_NP,              KC_AT_SPECIAL,     TD(OSL_U_NUM_ESC), TD(O
 
 #define MIRYOKU_ALTERNATIVES_TAP_COLEMAK_FLIP \
 KC_Q,              KC_W,              KC_F,              KC_P,              KC_G,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
-KC_A,              KC_R,              KC_S,              KC_T,              KC_D,              KC_H,              KC_N,              KC_E,              KC_I,              KC_O,              \
-KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_K,              KC_M,              KC_BSPC,           KC_DOT,            KC_COMM,           \
+KC_A,              KC_R,              KC_S,              KC_T,              KC_D,              KC_M,              KC_N,              KC_E,              KC_I,              KC_O,              \
+KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_K,              KC_H,              KC_BSPC,           KC_DOT,            KC_COMM,           \
 U_NP,              U_NP,              KC_AT_SPECIAL,     TD(OSL_U_NUM_ESC), TD(OSM_LSFT_ENT),  KC_SPC,            KC_SPC,            KC_REPEAT,         U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH_FLIP \
@@ -203,8 +203,8 @@ U_NP,              U_NP,              KC_ESC,            KC_SPC,            KC_T
 
 #define MIRYOKU_ALTERNATIVES_TAP_COLEMAK \
 KC_Q,              KC_W,              KC_F,              KC_P,              KC_G,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
-KC_A,              KC_R,              KC_S,              KC_T,              KC_D,              KC_H,              KC_N,              KC_E,              KC_I,              KC_O,              \
-KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_K,              KC_M,              KC_BSPC,           KC_DOT,            KC_COMM,           \
+KC_A,              KC_R,              KC_S,              KC_T,              KC_D,              KC_M,              KC_N,              KC_E,              KC_I,              KC_O,              \
+KC_Z,              KC_X,              KC_C,              KC_V,              KC_B,              KC_K,              KC_H,              KC_BSPC,           KC_DOT,            KC_COMM,           \
 U_NP,              U_NP,              KC_ESC,            KC_SPC,            KC_TAB,            KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_TAP_COLEMAKDH \
