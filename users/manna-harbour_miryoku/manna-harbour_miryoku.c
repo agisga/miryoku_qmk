@@ -57,6 +57,7 @@ enum custom_keycodes {
   KC_DOTSPC,
   KC_FIFTEENSTARS,
   KC_TODO,
+  KC_TABEDIT,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -202,13 +203,21 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
 // alexej's key-combos
-//enum combos {
+enum combos {
+    XC_SLSH,
+    WF_TAB,
+    DOTBSPC_ENT,
+    UY_ESC,
 //  AZ_MUTE,
 //  SX_VOLDN,
 //  DC_VOLUP,
 //  FV_WSL,
 //  GB_WSR,
-//};
+};
+const uint16_t PROGMEM xc_combo[] = {LT(U_FUN,KC_X), ALGR_T(KC_C), COMBO_END};
+const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
+const uint16_t PROGMEM dotbspc_combo[] = {KC_BSPC, LT(U_MEDIA,KC_DOT), COMBO_END};
+const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
 //const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
 //const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
 //const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
@@ -228,7 +237,11 @@ const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
   #endif
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_TAB, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
-  //// alexej's key-combos
+  // alexej's key-combos
+  [XC_SLSH] = COMBO(xc_combo, KC_SLSH),
+  [WF_TAB] = COMBO(wf_combo, KC_TAB),
+  [DOTBSPC_ENT] = COMBO(dotbspc_combo, KC_ENT),
+  [UY_ESC] = COMBO(uy_combo, KC_ESC),
   //[AZ_MUTE] = COMBO(az_combo, KC_MUTE),
   //[SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
   //[DC_VOLUP] = COMBO(dc_combo, KC_VOLU),
@@ -452,6 +465,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_TODO:
       if (record->event.pressed) {
           SEND_STRING("TODO ");
+      }
+      break;
+
+    case KC_TABEDIT:
+      if (record->event.pressed) {
+          SEND_STRING(":tabedit");
       }
       break;
   }
