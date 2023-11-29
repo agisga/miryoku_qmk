@@ -58,6 +58,7 @@ enum custom_keycodes {
   KC_DOTSPC,
   KC_FIFTEENSTARS,
   KC_TODO,
+  KC_TABEDIT,
 };
 
 bool is_alt_tab_active = false;    // ADD this near the begining of keymap.c
@@ -465,6 +466,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case KC_TODO:
       if (record->event.pressed) {
           SEND_STRING("TODO ");
+      }
+      break;
+
+    case KC_TABEDIT:
+      if (record->event.pressed) {
+          SEND_STRING(":tabedit");
       }
       break;
   }
