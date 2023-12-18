@@ -14,9 +14,9 @@ K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
 N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
 )\
 LAYOUT_ortho_5x16(\
-LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4), LSFT(KC_5), XXX,  KC_NUM, KC_PSLS, KC_PAST, KC_PMNS, XXX, LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), LSFT(KC_0),\
-K00,       K01,           K02,      K03,                K04,    XXX,  KC_P7,  KC_P8,   KC_P9,   KC_PPLS, XXX, K05,    K06,            K07,            K08,            K09,\
-K10,       K11,           K12,      K13,                K14,    XXX,  KC_P4,  KC_P5,   KC_P6,   KC_COLN, XXX, K15,    K16,            K17,            K18,            K19,\
-K20,       K21,           K22,      K23,                K24,    XXX,  KC_P1,  KC_P2,   KC_P3,   KC_PDOT, XXX, K25,    K26,            K27,            K28,            K29,\
-K32, LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RIGHT)), K33,    K33, K34,  KC_P0,  KC_MUTE, KC_VOLD, KC_VOLU, K35, K36,    XXX,            K37,            KC_WH_D,        KC_WH_U \
+LSFT(KC_1), LSFT(KC_2), LSFT(KC_3), LSFT(KC_4),  LSFT(KC_5), KC_TAB,  KC_NUM, KC_PSLS, KC_PAST, KC_PMNS,  KC_DEL, LSFT(KC_6), LSFT(KC_7), LSFT(KC_8), LSFT(KC_9), LSFT(KC_0),\
+K00,       K01,           K02,      K03,                K04, KC_ALT,  KC_P7,  KC_P8,   KC_P9,   KC_PPLS,     XXX, K05,        K06,            K07,            K08,            K09,\
+K10,       K11,           K12,      K13,                K14, KC_ESC,  KC_P4,  KC_P5,   KC_P6,   KC_COLN,  KC_ENT, K15,        K16,            K17,            K18,            K19,\
+K20,       K21,           K22,      K23,                K24,KC_SLSH,  KC_P1,  KC_P2,   KC_P3,   KC_PDOT, KC_QUES, K25,        K26,            K27,            K28,            K29,\
+K32, LCTL(LGUI(KC_LEFT)), LCTL(LGUI(KC_RIGHT)), K33,    K33,    K34,  KC_P0,  KC_P0,   KC_P0,   XXX,         K35, K36,        XXX,            K37,            KC_WH_D,        KC_WH_U \
 )
