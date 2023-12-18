@@ -205,20 +205,24 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
 // alexej's key-combos
 enum combos {
-    XC_SLSH,
-    WF_TAB,
-    DOTBSPC_ENT,
-    UY_ESC,
+    PG_TAB,
+    TD_ESC,
+    VB_SLSH,
+    JL_DEL,
+    MN_ENT,
+    KH_QUES,
 //  AZ_MUTE,
 //  SX_VOLDN,
 //  DC_VOLUP,
 //  FV_WSL,
 //  GB_WSR,
 };
-const uint16_t PROGMEM xc_combo[] = {LT(U_FUN,KC_X), ALGR_T(KC_C), COMBO_END};
-const uint16_t PROGMEM wf_combo[] = {KC_W, KC_F, COMBO_END};
-const uint16_t PROGMEM dotbspc_combo[] = {KC_BSPC, LT(U_MEDIA,KC_DOT), COMBO_END};
-const uint16_t PROGMEM uy_combo[] = {KC_U, KC_Y, COMBO_END};
+const uint16_t PROGMEM pg_combo[] = {KC_P, KC_G, COMBO_END};
+const uint16_t PROGMEM td_combo[] = {LSFT_T(KC_T), KC_D, COMBO_END};
+const uint16_t PROGMEM vb_combo[] = {LT(U_SYM,KC_V), KC_B, COMBO_END};
+const uint16_t PROGMEM jl_combo[] = {KC_J, KC_L, COMBO_END};
+const uint16_t PROGMEM mn_combo[] = {KC_M, LSFT_T(KC_N), COMBO_END};
+const uint16_t PROGMEM kh_combo[] = {KC_K, LT(U_NAV,KC_H), COMBO_END};
 //const uint16_t PROGMEM az_combo[] = {LGUI_T(KC_A), LT(U_BUTTON,KC_Z), COMBO_END};
 //const uint16_t PROGMEM sx_combo[] = {LALT_T(KC_R), LT(U_FUN,KC_X), COMBO_END};
 //const uint16_t PROGMEM dc_combo[] = {LCTL_T(KC_S), KC_C, COMBO_END};
@@ -239,10 +243,12 @@ const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_TAB, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
   // alexej's key-combos
-  [XC_SLSH] = COMBO(xc_combo, KC_SLSH),
-  [WF_TAB] = COMBO(wf_combo, KC_TAB),
-  [DOTBSPC_ENT] = COMBO(dotbspc_combo, KC_ENT),
-  [UY_ESC] = COMBO(uy_combo, KC_ESC),
+  [PG_TAB]  = COMBO(pg_combo, KC_TAB),
+  [TD_ESC]  = COMBO(td_combo, KC_ESC),
+  [VB_SLSH] = COMBO(vb_combo, KC_SLSH),
+  [JL_DEL]  = COMBO(jl_combo, KC_DEL),
+  [MN_ENT]  = COMBO(mn_combo, KC_ENT),
+  [KH_QUES] = COMBO(kh_combo, KC_QUES),
   //[AZ_MUTE] = COMBO(az_combo, KC_MUTE),
   //[SX_VOLDN] = COMBO(sx_combo, KC_VOLD),
   //[DC_VOLUP] = COMBO(dc_combo, KC_VOLU),
